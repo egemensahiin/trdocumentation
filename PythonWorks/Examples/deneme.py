@@ -682,3 +682,11 @@ channels = {
   7: "ABC"
 }
 print(stations_to_numbers(channels))
+
+print()
+
+# Exercise 'Set Basics'
+def remove_duplicates(ls):
+    return list(set(ls))
+print(remove_duplicates([1, 2, 1, 2]))
+print(remove_duplicates([1, 2, 3, 4]))

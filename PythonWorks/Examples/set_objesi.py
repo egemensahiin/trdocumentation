@@ -80,8 +80,9 @@ print()
 # ve list fonksiyonu kullanarak listesi önce sete çevirmek, sonra tekrar listelemektir.
 şehirler = ["Samsun", "Ordu", "Amasya", "Eskişehir", "Ankara", "Samsun", "Amasya"]
 şehirler_set = set(şehirler)
-şehirler = list(şehirler_set)
-print(şehirler)
+şehirler = list(şehirler_set) 
+print(şehirler) # görüldüğü gibi elementlerin sırası ilk oluşturulan listeye göre biraz daha
+# rastlantısaldır.
 # elbette bunu tek satırda yapmak daha pratik:
 şehirler = ["Samsun", "Ordu", "Amasya", "Eskişehir", "Ankara", "Samsun", "Amasya"]
 şehirler = list(set(şehirler))
