@@ -1,0 +1,18 @@
+{
+    "editor.fontSize": 14,
+    "editor.minimap.enabled": false,
+    "editor.tabSize": 4,
+    "python.linting.enabled": true,
+    "python.pythonPath": "python",
+    "python.linting.pylintEnabled":false,
+    "python.linting.lintOnSave": true,
+    "python.testing.unittestEnabled": true,
+    "python.testing.pytestEnabled": false,
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.saveAllFilesBeforeRun": true,
+    "code-runner.showExecutionMessage": false,
+    "code-runner.executorMap": {
+        "python": "python -u",
+    },
+    "workbench.panel.defaultlocation": "right",
+}
