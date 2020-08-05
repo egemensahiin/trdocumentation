@@ -70,3 +70,19 @@ print(set("Egemen"))                # stringler
 print(set({"k1": "v1", "k2": "v2"}))# ve sözlükler set oluşturmak için set fonksiyonundan geçirilebilir.
 # sözlüklerden set, liste veya tuple oluşturmak istediğimizde söz konusu objeler sözlüğün key'leriyle o-
 # luşturulur.
+
+print()
+
+# set fonksiyonunun ve genel olarak set tipindeki objelerin en yaygın kullanımı, bir listedeki tekrarlanan
+# elemanların kaldırılmasıdır. fakat unutulmaması gereken listenin set'e dönüştürülüp tekrar listelenmesi
+# durumunda, elemanların sırasının değişmesi olasılığıdır. yani elimizde tekrar eden elemanları elimine
+# etmemiz gereken ve eleman sırasının önem arz etmediği bir liste varsa bunu yapmanın en efektif yolu set
+# ve list fonksiyonu kullanarak listesi önce sete çevirmek, sonra tekrar listelemektir.
+şehirler = ["Samsun", "Ordu", "Amasya", "Eskişehir", "Ankara", "Samsun", "Amasya"]
+şehirler_set = set(şehirler)
+şehirler = list(şehirler_set)
+print(şehirler)
+# elbette bunu tek satırda yapmak daha pratik:
+şehirler = ["Samsun", "Ordu", "Amasya", "Eskişehir", "Ankara", "Samsun", "Amasya"]
+şehirler = list(set(şehirler))
+print(şehirler)
