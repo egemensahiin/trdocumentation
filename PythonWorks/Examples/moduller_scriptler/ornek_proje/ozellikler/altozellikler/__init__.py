@@ -1,0 +1,1 @@
+print("altozellikler klasöründeki __init__.py dosyasından geliyor.")

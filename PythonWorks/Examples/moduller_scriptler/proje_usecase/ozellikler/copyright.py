@@ -1,0 +1,1 @@
+copyright_tarihi = 2020

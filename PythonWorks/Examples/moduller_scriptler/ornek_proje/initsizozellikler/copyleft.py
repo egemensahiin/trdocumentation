@@ -1,0 +1,1 @@
+copyleft_tarihi = 2020

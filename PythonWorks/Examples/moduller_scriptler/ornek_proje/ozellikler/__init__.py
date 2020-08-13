@@ -1,0 +1,1 @@
+print("ozellikler klasöründeki __init__.py dosyasından geliyor.")
