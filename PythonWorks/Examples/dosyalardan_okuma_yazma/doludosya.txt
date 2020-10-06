@@ -1,0 +1,4 @@
+Merhaba dosya.
+Ne güzel dosyasın senİkinci satıra bunu ekledim.
+Bu da üçüncü satır.İkinci satıra bunu ekledim.
+Bu da üçüncü satır.

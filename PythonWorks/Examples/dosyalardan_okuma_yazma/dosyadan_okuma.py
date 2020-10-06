@@ -4,17 +4,17 @@
 # için "a", üstüne yazmak için "w", okumak için "r" stringlerini kabul eder.
 # open fonksiyonu çıktı olarak input-output tipinde bir obje verir ve bu obje bir değişkene atanarak daha
 # sonra dosyayı çağırmak için kullanılabilir:
-diller = open("diller.txt", "r")
-print(diller)
+sozler = open("sozler.txt", "r")
+print(sozler)
 # type fonksiyonuyla çıktı aldığımızda bu objenin sınıfının '_io.TextIOWrapper' olduğunu görürüz.
-print(type(diller))
+print(type(sozler))
 # dosyanın içeriği read metoduyla okunabilir:
-print(diller.read())
+print(sozler.read())
 # bu syntaxla dosyayı kapatmayı unutmamalıyız. aksi takdirde dosya açık kalır ve RAM'de yer tutmaya devam e-
 # der. bunun için close metodu kullanılır:
-diller.close()
-# dosya kapansa da diller değişkeni halen bir IO objesidir.
-print(type(diller))
+sozler.close()
+# dosya kapansa da sozler değişkeni halen bir IO objesidir.
+print(type(sozler))
 
 print()
 
@@ -23,9 +23,26 @@ print()
 # lışmayacağı için dosyanın açık kalmasıdır. bu durumda açık kalan dosya RAM ve CPUda yer tutmaya devam e-
 # derek performans düşüşüne yol açar. bu sebeple with keywordu kullanılır. with keywordu bir blok oluşturur
 # ve blok içersinde hata olsun ya da olmasın blok sonlandığında doyayı kapatır.
-with open("diller.txt", "r") as diller_dosyası:
-    içerik = diller_dosyası.read()
+with open("sozler.txt", "r") as sozler_dosyası:
+    içerik = sozler_dosyası.read()
     print(içerik)
 # with bloğu bittikten sonra da içersindeki değişkenler geçerlidir:
-print(diller_dosyası)
+print(sozler_dosyası)
 print(içerik)
+
+print()
+
+# open fonksiyonuyla oluşturduğumuz obje, bir iterable objedir. dolayısıyla bir dosyayı okumanın en etkin yolu
+# dosyayı for döngüsüyle satır satır okumaktır. bu sayede istediğimiz satırı okumamız mümkündür, diğer satır-
+# ları okumayarak performanstan tasarruf edebiliriz.
+with open("sozler.txt", "r") as sozler:
+    for satır in sozler:
+        print(satır)
+print()
+# çıktıda gördüğümüz üzere satır arası boşluklar, normalde olduğundan daha fazla. bunun sebebi print fonksiyo-
+# nunun her yazımdan sonra bir satır sonu eklemesidir. dosyada da her satır, bir satır sonuyla bittiği için
+# iki satır sonu birlikte yazdırılır. bunu önlemek için her satır, strip metodundan geçirilebilir. en nihaye-
+# tinde her satır birer string olduğu için mesela rstrip metoduyla sağdaki fazla satır sonu silinebilir:
+with open("sozler.txt", "r") as sozler:
+    for satır in sozler:
+        print(satır.rstrip())
