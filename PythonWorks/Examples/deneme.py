@@ -690,3 +690,90 @@ def remove_duplicates(ls):
     return list(set(ls))
 print(remove_duplicates([1, 2, 1, 2]))
 print(remove_duplicates([1, 2, 3, 4]))
+
+print()
+
+# Exercise 'Instance Methods'
+class Musician():
+    def __init__(self, age, income):
+        self.age = age
+        self.income = income
+    def enter_club(self):
+        if self.age < 21:
+            return "Access denied!"
+        else:
+            return "Access granted!"
+    def play_show(self):
+        self.income += 5
+
+cliff = Musician(age = 27, income = 0)
+print(cliff.age)    # 27
+print(cliff.enter_club())  # "Access granted!"
+print(cliff.income) # 0
+cliff.play_show()
+print(cliff.income) # 5
+cliff.play_show()
+print(cliff.income) # 10
+
+print()
+
+# Exercise 'Protected Attributes'
+class Book():
+    def __init__(self, author, publisher, page_count):
+        self._author = author
+        self._publisher = publisher
+        self.page_count = page_count
+    def copyright(self):
+        return "Copyright " + self._author + ", " + self._publisher
+    def rip_in_half(self):
+        if self.page_count > 1:
+            self.page_count /= 2
+        else:
+            self.page_count = 0
+
+book = Book(author = "Grant Cardone", publisher = "10X Enterprises", page_count = 10)
+
+print(book.copyright()) # Copyright Grant Cardone, 10X Enterprises
+
+print(book.page_count) # 10
+book.rip_in_half()
+print(book.page_count) # 5.0
+book.rip_in_half()
+print(book.page_count) # 2.5
+book.rip_in_half()
+print(book.page_count) # 1.25
+book.rip_in_half()
+print(book.page_count) # 0.625
+book.rip_in_half()
+print(book.page_count) # 0
+book.rip_in_half()
+print(book.page_count) # 0
+
+print()
+
+class PizzaPie():
+    def __init__(self, total_slices):
+        self._slices_eaten = 0
+        self.total_slices = total_slices
+    @property
+    def slices_eaten(self):
+        return self._slices_eaten
+    @slices_eaten.setter
+    def slices_eaten(self, slices_eaten):
+        if slices_eaten < self.total_slices:
+            self._slices_eaten = slices_eaten
+    @property
+    def percentage(self):
+        return self._slices_eaten / self.total_slices
+
+cheese = PizzaPie(8)
+cheese.slices_eaten = 2
+print(cheese.percentage) # 0.25
+
+cheese.slices_eaten = 4
+print(cheese.percentage) # 0.5
+
+cheese.slices_eaten = 10 # _slices_eaten should not change because there's only 8 slices in pie
+print(cheese.percentage) # 0.5
+
+# cheese.percentage = 0.50 AttributeError çünkü setter tanımlamadık
