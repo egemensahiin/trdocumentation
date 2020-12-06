@@ -57,3 +57,6 @@ ikea = Masa()
 koçtaş = Masa(malzeme = "Ceviz")
 print(ikea.malzeme)
 print(koçtaş.malzeme)
+
+## !! sınıfların tüm nitelik ve metodları dir fonksiyonuyla görüntülernir. !! ##
+print(sorted(dir(5)))

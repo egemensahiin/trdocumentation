@@ -777,3 +777,236 @@ cheese.slices_eaten = 10 # _slices_eaten should not change because there's only 
 print(cheese.percentage) # 0.5
 
 # cheese.percentage = 0.50 AttributeError çünkü setter tanımlamadık
+
+print()
+
+# Exercise 'Equality and String Representation'
+
+# Part A: Instantiation
+
+# Define a BusTrip class that is initialized with a destination, 
+# a bus company, and a price for the trip. 
+# Preserve the arguments as attributes on the object.
+# The choice of whether to use protected attributes is up to you.
+class BusTrip():
+    def __init__(self, destination, company, price):
+        self.destination = destination
+        self.company = company
+        self.price = price
+# Part B: String Representation
+
+# The string representation of a BusTrip object must be a string in the form of:
+#    "You paid 24.99 to Greyhound to go to Boston.""
+# In this example, “Boston” is the destination, “Greyhound” is the bus company, and 24.99 is the price.
+# These are all fed in as arguments when a BusTrip object is initialized.
+    def __str__(self):
+        return f"You paid {self.price} to {self.company} to go to {self.destination}."
+# Part C: Equality
+
+# Implement equality logic between two different BusTrip objects.
+# Two BusTrips object are considered equal if:
+#   -- they have the same destination
+#   -- their price is within 3 dollars of each other
+# HINT: Use Python’s abs function to calculate the absolute value of a number.
+    def __eq__(self, anotherObj):
+        return self.destination == anotherObj.destination and abs(self.price - anotherObj.price) <= 3
+# Sample Execution
+boston1 = BusTrip(destination = "Boston", company = "Greyhound", price = 24.99)
+boston2 = BusTrip(destination = "Boston", company = "Megabus", price = 22.99)
+boston3 = BusTrip(destination = "Boston", company = "Megabus", price = 49.99)
+philly  = BusTrip(destination = "Philadelphia", company = "Peter Pan", price = 12.99)
+
+print(boston1)            # You paid 24.99 to Greyhound to go to Boston.
+print(boston1 == philly)  # False - different destinations
+print(boston1 == boston2) # True - same destination and insignificant price difference
+print(boston1 == boston3) # False - large price difference
+
+print()
+
+# Exercise 'Custom Indexing and Iteration'
+
+# Define a Car class that accepts a maker (string), model (string),
+# and year (number) parameters and assigns them to respective
+# attributes
+
+# Define a Dealership class. Each Dealership object should instantiate
+# with a "cars" attribute set to an empty list.
+
+# A Dealership object should have a accept_delivery instance method
+# that accepts a Car object and adds it to the Dealership's internal
+# "cars" list
+
+# Indexing into a Dealership with a number should access a specific
+# Car object in the Dealership.
+
+# An index position in a Dealership should also be overwriteable
+# with a new Car object (see examples below)
+import collections
+Car = collections.namedtuple("Car", ["maker", "model", "year"])
+class Dealership():
+    def __init__(self):
+        self.cars = []
+    def accept_delivery(self, delivery):
+        self.cars.append(delivery)
+    def __getitem__(self, index):
+        return self.cars[index]
+    def __setitem__(self, index, value):
+        self.cars[index] = value
+
+f150 = Car(maker = "Ford", model = "F-150", year = 2019)
+camry = Car(maker = "Toyota", model = "Camry", year = 2020)
+porsche = Car (maker = "Porsche", model = "911 Carrera", year = 2021)
+
+dealership = Dealership()
+
+dealership.accept_delivery(f150)
+dealership.accept_delivery(camry)
+
+print(dealership[0].year) # 2019 -- the F150's year
+
+dealership[0] = porsche
+
+for car in dealership:
+  print(car.maker) # Porsche, Toyota
+
+print()
+
+# Example 'Magic Methods'
+# Declare a Newspaper class.
+
+# Each Newspaper will have a 'pages' attribute set to an integer
+# and a 'sections' attribute set to a dictionary.
+# The keys in 'sections' will be strings representing a section (i.e. "Politics")
+# and the values will be the starting page for that section (i.e. "A5").
+
+# The length of a newspaper should be equal to the number of pages it holds.
+
+# Indexing the newspaper by a section should return the starting pasge for that section.
+
+# Make it so two newspapers are considered equal if they have the
+# same number of pages AND the same number of sections
+
+class Newspaper():
+    def __init__(self, pages, sections):
+        self.pages = pages
+        self.sections = sections
+    def __len__(self):
+        return self.pages
+    def __getitem__(self, key):
+        return self.sections[key]
+    def __eq__(self, other):
+        return self.pages == other.pages and len(self.sections) == len(other.sections)
+
+monday_sections = {
+  "Politics": "A5",
+  "Sports": "B2",
+  "Entertainment": "C3"
+}
+
+tuesday_sections = {
+  "Travel": "A5",
+  "Cooking": "B2",
+}
+
+wednesday_sections = {
+  "Classifieds": "A5",
+  "Weddings": "B2",
+  "Weather": "C3"
+}
+
+np1 = Newspaper(pages = 80, sections = monday_sections)
+np2 = Newspaper(pages = 60, sections = tuesday_sections)
+np3 = Newspaper(pages = 80, sections = wednesday_sections)
+
+print(len(np1))        # 80
+print(len(np2))        # 60
+print(np1 == np2)      # False -- np1 has 3 sections while np2 has 2 sections
+print(np1 == np3)      # True -- both have 80 pages and 3 sections
+print(np1["Politics"]) # "A5"
+print(np2["Cooking"])  # "B2"
+
+print()
+
+# Egzersiz 'The super Function'
+class Musician():
+    def __init__(self, name):
+        self.name = name
+        self.albums = []
+    def release_album(self, title):
+        self.albums.append(title)
+class Drummer(Musician):
+    def __init__(self, name, stamina):
+        super().__init__(name)
+        self.stamina = stamina
+
+lars = Drummer(name = "Lars", stamina = 2)
+print(lars.name)   # "Lars"
+print(lars.stamina) # 2
+print(lars.albums) # []
+
+lars.release_album("Ride the Lightning")
+print(lars.albums) # ["Ride the Lightning"]
+
+lars.release_album("Master of Puppets")
+print(lars.albums)  # ["Ride the Lightning", 'Master of Puppets']
+
+print()
+
+# Exersice 'Polymorphism'
+
+import random
+# In this exercise, we'll be modelling a routine for proper dental health,
+# which includes brushing our teeth, flossing, and using mouthwash.
+# The order of these three varies from person to person.
+
+# Declare a DentalHealthItem class. Its initialization should set a "price"
+# attribute.
+
+# Declare a Toothbrush subclass that inherits from DentalHealthItem.
+# On it, define a "use" instance method that returns "Brushing the teeth"
+
+# Declare a Floss subclass that inherits from DentalHealthItem.
+# On it, define a "use" instance method that returns "Flossing the teeth"
+
+# Declare a Mouthwash subclass that inherits from DentalHealthItem.
+# On it, define a "use" instance method that returns "Washing the teeth"
+
+# Instantiate an instance of a Toothbrush and assign it a "toothbrush" variable.
+# Instantiate an instance of a Floss and assign it a "floss" variable.
+# Instantiate an instance of a Mouthwash and assign it a "mouthwash" variable.
+
+# Declare a "dental_health_kit" variable. It should be a list that stores the three objects.
+
+# Import the "random" module (see last lesson for reference).
+# Invoke the "shuffle" function from the module, passing in the dental_health_kit list.
+# This will mutate the list, randomizing the order of its elements.
+
+# Use list comprehension to invoke the "use" method on all three objects in "dental_health_kit".
+# Assign the resulting list of strings to an "actions" variable.
+class DentalHealthItem():
+    def __init__(self, price):
+        self.price = price
+
+class Toothbrush(DentalHealthItem):
+    def use(self):
+        return "Brushing the teeth"
+
+class Floss(DentalHealthItem):
+    def use(self):
+        return "Flossing the teeth"
+
+class Mouthwash(DentalHealthItem):
+    def use(self):
+        return "Washing the teeth"
+
+toothbrush = Toothbrush(5.99)
+floss = Floss(8.99)
+mouthwash = Mouthwash(10.99)
+
+dental_health_kit = [toothbrush, floss, mouthwash]
+actions = []
+random.shuffle(dental_health_kit)
+
+for action in dental_health_kit:
+    actions.append(action.use())
+print(actions)
