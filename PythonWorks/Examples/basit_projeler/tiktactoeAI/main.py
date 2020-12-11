@@ -1,4 +1,4 @@
-from player import RandomComputerPlayer, HumanPlayer
+from player import RandomComputerPlayer, HumanPlayer, GeniusComputerPlayer
 
 class TicTacToe():
     def __init__(self):
@@ -76,13 +76,13 @@ class TicTacToe():
 def play(game, x_player, o_player, print_game=True):
     if print_game:
         game.print_number_board()
-    letter = 'X' # oyuncu için default harf
+    letter = 'X' # ilk oyuncu için default
     while game.empty_squares(): # yani boş kare oldukça devam edecek döngü.
         # uygun oyuncudan hamle alalım:
-        if letter == 'O':
-            choice = o_player.get_move(game)
-        else:
+        if letter == 'X':
             choice = x_player.get_move(game)
+        else:
+            choice = o_player.get_move(game)
         if game.make_move(choice, letter):
         # eğer make_move True çıktısı veriyorsa yani oyuncu geçerli bir kareye hamle
         # yaptıysa hamle yaptığını belirtelim (eğer print_game istendiyse) ve oyuncu
@@ -102,7 +102,22 @@ def play(game, x_player, o_player, print_game=True):
         print('It\'s a tie.')
 
 if __name__ == '__main__':
-    player1 = HumanPlayer('X')
+    # x_wins = 0
+    # o_wins = 0
+    # ties = 0
+    # for _ in range(100):
+    #     player1 = GeniusComputerPlayer('X')
+    #     player2 = RandomComputerPlayer('O')
+    #     t = TicTacToe()
+    #     result = play(t, player1, player2, print_game=False)
+    #     if result == 'X':
+    #         x_wins += 1
+    #     elif result == 'O':
+    #         o_wins += 1
+    #     else:
+    #         ties += 1
+    # print(f'X won {x_wins} times, O won {o_wins} times and it was tie for {ties} times.')
+    player1 = GeniusComputerPlayer('X')
     player2 = HumanPlayer('O')
-    t = TicTacToe()
-    play(t, player1, player2, print_game=True)
+    game = TicTacToe()
+    play(game, player1, player2, print_game=True)
