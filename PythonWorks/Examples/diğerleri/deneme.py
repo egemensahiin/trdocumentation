@@ -95,10 +95,10 @@ print()
 # e + p + a + reverse(str[:-1])
 # e + p + a + n reverse(str[:-1])
 # e + p + a + n + S olur.
-def reverse(str):   # str = egemen olsun
+def reverse2(str):   # str = egemen olsun
     if len(str) <= 1: # 6 <= 1 False o yüzden blok atlanıyor.
         return str
-    return str[-1] + reverse(str[:-1])
+    return str[-1] + reverse2(str[:-1])
 #----------"n"          str = str[:-1] ----> egeme
 #--------------------   if len(str) <= 1: -> 5 <= 1; False
 #--------------------       if bloğu okunmayacak!
@@ -123,7 +123,7 @@ def reverse(str):   # str = egemen olsun
 #                                                                                                           yon bitene kadar geriye doğru okunacak bu durum-
 #                                                                                                           da return "n" + "e" + "m" + "e" + "g" + "e" ola-
 #                                                                                                           cak. bunu print edince de nemege olacak.
-print(reverse("Egemen"))
+print(reverse2("Egemen"))
 
 print()
 
@@ -260,9 +260,9 @@ print(arama(3, [1, 3, 5, 8, 6, 9, 87, 25]))
 print()
 
 # Deneme 7
-def arama(sayı, liste):
+def arama2(sayı, liste):
     sonuc = False
-    for indeks, herbir in enumerate(liste, 1):
+    for _, herbir in enumerate(liste, 1):
         if herbir == sayı:
             sonuc = True
             print(f"Aranan sayı listede var.")
@@ -271,8 +271,8 @@ def arama(sayı, liste):
         print("Aranan sayı listede yok.")
     return
 
-arama(3, [1,4,6787,828,64,65,787,6,3])
-arama(3, [21,21,21321,154,54,541,4574])
+arama2(3, [1,4,6787,828,64,65,787,6,3])
+arama2(3, [21,21,21321,154,54,541,4574])
 
 print()
 
@@ -340,12 +340,12 @@ print(floata_cevir([1, 2, 6, 8, 9]))
 print()
 
 # Deneme 10
-def even_or_odd(liste):
+def even_or_odd2(liste):
     sonuc = []
     for sayı in liste:
         sonuc.append(sayı % 2 == 0) # şimdi burada sayı çift ise parantezin içi True, tek ise False olacak;
     return sonuc
-print(even_or_odd([1, 2, 6, 8, 9]))
+print(even_or_odd2([1, 2, 6, 8, 9]))
 
 print()
 
@@ -456,7 +456,6 @@ print()
 
 # Egzersiz 27
 def cleanup(liste):
-    final = ""
     for eleman in liste:
         if eleman.isspace() == True:
             liste.remove(eleman)
@@ -928,13 +927,13 @@ print(np2["Cooking"])  # "B2"
 print()
 
 # Egzersiz 'The super Function'
-class Musician():
+class Musician2():
     def __init__(self, name):
         self.name = name
         self.albums = []
     def release_album(self, title):
         self.albums.append(title)
-class Drummer(Musician):
+class Drummer(Musician2):
     def __init__(self, name, stamina):
         super().__init__(name)
         self.stamina = stamina
