@@ -1,5 +1,5 @@
 {
-    "editor.fontSize": 14,
+    "editor.fontSize": 12,
     "editor.minimap.enabled": false,
     "editor.tabSize": 4,
     "python.linting.enabled": true,
@@ -11,11 +11,11 @@
     "code-runner.saveAllFilesBeforeRun": true,
     "code-runner.showExecutionMessage": false,
     "code-runner.executorMap": {
-        "python": "C:\\Users\\Egemen\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe",
+        "python": "pyhton3",
     },
     "workbench.panel.defaultlocation": "right",
     "gruvboxMaterial.italicKeywords": true,
     "python.testing.promptToConfigure": false,
     "python.testing.nosetestsEnabled": false,
-    "python.pythonPath": "C:\\Users\\Egemen\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe",
+    "python.pythonPath": "/usr/bin/python3",
 }
