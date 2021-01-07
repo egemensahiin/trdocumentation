@@ -36,3 +36,50 @@ def negatifse_topla(a, b):
 print(negatifse_topla(-5, -6))
 print(negatifse_topla(5, -6))
 print(negatifse_topla(-5, 6))
+
+print()
+# Kullanıcı tanımlı hatalarda inheritance
+# --------------------------------------
+# pyhthonda kendi tanımladığımız hataları bir modül içersinde toplamak genellikle iyi bir pratiktir. bazı programlarda, programcılar benzer
+# hataları, aynı mantıkla yükselen hataları bir hata sınıfının alt sınıfları olarak tanımlarlar. yalnız hendi hatalar hiyerarşimizi oluştururken
+# her miras alımın en üstünde, pythonun built-in hata sınıflarından birinin miras alındığına dikkat etmemiz lazım:
+class Hatalar(Exception):
+    pass
+
+class SaçmaHata(Hatalar):
+    pass
+
+class MantıksızHata(Hatalar):
+    pass
+
+# bu durumda SaçmaHata ile MantıksızHata, kardeş sınıflardır çünkü aynı parenttan köken alırlar.
+try:
+    raise SaçmaHata("Saçma sapan hareketler yapmasan mı..")
+except SaçmaHata as e:
+    print(f"Bir hata buldum: {e}")
+
+try:
+    raise MantıksızHata("Mantık arıyorum bulamıyorum.")
+except MantıksızHata as e:
+    print(f"Bir hata buldum: {e}")
+
+# gördüğümüz gibi iki hata da başarılı şekilde çalışıyor. fakat unutmamız gereken şu, kardeş objeler aynı objeler değildir. yani:
+# try:
+#     raise SaçmaHata("Saçma sapan hareketler yapmasan mı..")
+# except MantıksızHata as e:
+#     print(f"Bir hata buldum: {e}")
+# bu bloklar çalıştığında SaçmaHata alırız ama except bloğu MantıksızHata beklediği için program 68. satırda sonlanır ve TraceBack verir.
+
+# fakat her iki hata da Hatalar objesinin altında olduğu için Hatalar, her ikisini de yakalar:
+try:
+    raise SaçmaHata("Saçma sapan hareketler yapmasan mı..")
+except Hatalar as e:
+    print(f"Bir hata buldum: {e}")
+
+try:
+    raise MantıksızHata("Mantık arıyorum bulamıyorum.")
+except Hatalar as e:
+    print(f"Bir hata buldum: {e}")
+
+# bu şekildeki bir pratik her program için uygun olmayabilir. sonuçta hataları spesifik durumları test etmek için yazdığımızı düşünürsek
+# tek bir üst sınıfın iki farklı hatayı yakalamasını istemeyebiliriz. fakat bunların hepsi pratiğe göre. bilmekte fayda var.

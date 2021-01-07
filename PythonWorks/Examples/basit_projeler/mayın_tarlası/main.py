@@ -118,4 +118,4 @@ def play(size = 10, num_bombs = 10):
         print("Sorry, you dug a bomb and you are lost..")
 
 if __name__ == '__main__':
-    play()
+    play(num_bombs=20)
