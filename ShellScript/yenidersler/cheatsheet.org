@@ -1,0 +1,143 @@
+* Değişkenlerle ilgili ufak bilgiler
+|--------------------------------------------------------------------|
+| Değişkenler, harflerle başlayamaz ve özel karakterlerden yalnızca  |
+| "_" içerebilirler. Buna ek olarak zorunlu bir durum olmasa da bir  |
+| topluluk kuralı olarak değişkenler her zaman büyük harfle yazılır. |
+| Değişkenler tanımlanırken değişken ismi ile "=" arasında ve        |
+| atanan değer arasında boşluk olması durumunda hata alınır.         |
+|--------------------------------------------------------------------|
+| Normal bir şekilde tanımlanan değişkenler "global" değişkenlerdir. |
+| Ayrıca fonksiyonlar içersinde tanımalanan değikenler de fonksiyon  |
+| çalıştırıldığında global değişkenler olarak yazılırlar. Buna       |
+| karşın fonksiyonlar içersindeki değişkenlerin, aksi gerekmedikçe   |
+| local tutulması daha iyi bir pratiktir. Bu amaçla fonksiyon        |
+| içersinde değişkenler, "local" komutu ile tanımlanırlar.           |
+|--------------------------------------------------------------------|
+
+* Koşullu ifadeler
+** Dosya Operatörleri (Testleri)
+|---------+----------------------------------------------------------|
+| -d FILE | FILE klasör olduğunda doğrudur.                          |
+|---------+----------------------------------------------------------|
+| -e FILE | FILE mevcut ise doğrudur.                                |
+|---------+----------------------------------------------------------|
+| -f FILE | FILE mevcut ve normal bir dosya ise doğrudur.            |
+|---------+----------------------------------------------------------|
+| -r FILE | FILE kullanıcı tarafından okunabilirse doğrudur.         |
+|---------+----------------------------------------------------------|
+| -s FILE | FILE mevcut ve boş değilse doğrudur.                     |
+|---------+----------------------------------------------------------|
+| -w FILE | FILE kullanıcı tarafından yazılabilir ise doğrudur.      |
+|---------+----------------------------------------------------------|
+| -x FILE | FILE kullanıcı tarafından çalıştırılabilir ise doğrudur. |
+|---------+----------------------------------------------------------|
+** String Operatörleri (Testler)
+|--------------------+----------------------------------|
+| -z STRING          | STRING boş ise doğrudur.         |
+|--------------------+----------------------------------|
+| -n STRING          | STRING boş değil ise doğrudur.   |
+|--------------------+----------------------------------|
+| STRING1 = STRING2  | Stringler eşit ise doğrudur.     |
+|--------------------+----------------------------------|
+| STRING1 != STRING2 | Stringler eşit değilse doğrudur. |
+|--------------------+----------------------------------|
+** Aritmetik Operatörler (Testler)
+|---------------+--------------------------------------------|
+| arg1 -eq arg2 | arg1 ve arg2 eşit olduğunda doğrudur.      |
+|---------------+--------------------------------------------|
+| arg1 -ne arg2 | arg1 ve arg2 eşit değilse doğrudur.        |
+|---------------+--------------------------------------------|
+| arg1 -lt arg2 | arg1, arg2'den küçükse doğrudur.           |
+|---------------+--------------------------------------------|
+| arg1 -le arg2 | arg1, arg2'den küçük veya eşitse doğrudur. |
+|---------------+--------------------------------------------|
+| arg1 -gt arg2 | arg1, arg2'den büyükse doğrudur.           |
+|---------------+--------------------------------------------|
+| arg1 -ge arg2 | arg1, arg2'den büyük veya eşitse doğrudur. |
+|---------------+--------------------------------------------|
+
+* Pozisyonel parametreler
+|--------------+---------------------------------------------------------|
+| $0, $1 .. $N | N. pozisyonel parametredir. ($0, fonksiyonlar içersinde |
+|              | kullanıldığında fonksiyonun adı, normalde ise scriptin  |
+|              | adıdır)                                                 |
+|--------------+---------------------------------------------------------|
+| $@           | $1'den sonuncuya kadar tüm pozisyonel parametrelerdir.  |
+|--------------+---------------------------------------------------------|
+| $?           | Son çalışan komutun, fonksiyonun, programın exit kodu   |
+|--------------+---------------------------------------------------------|
+| $$           | Çalışan scriptin işlem numarası (Process ID/PID)        |
+|--------------+---------------------------------------------------------|
+* Çıkış durumları (exit status)
+|-----------------------------------------------------------------------------|
+| Çıkış kodları başarılı durumlarda 0 diğer durumlarda ise 1-255 arasında bir |
+| sayıdır. Scriptlerimizin exit kodunu "exit" komutuyla belirleyebiliriz.     |
+| Fakat exit komutu, programı bitirdiği için eğer fonksiyonlardan çıkış kodu  |
+| almak istiyorsak, yalnızca fonksiyonun başarılı olup olmadığı ile           |
+| ilgileniyorsak, return komutunu kullanırız. return komutu, exti'in aksine   |
+| programı bitirmez, fonksiyonu bitirir. return veya exit kullanılmazsa       |
+| script veya fonksiyonun çıkış kodu, en son çalışan komutun çıkış kodudur.   |
+|-----------------------------------------------------------------------------|
+
+* Shell Scriptlerin genel düzeni
+|---+---------------------------------------------|
+| 1 | Shebang                                     |
+|---+---------------------------------------------|
+| 2 | Yorumlar ve dosya başlığı                   |
+|---+---------------------------------------------|
+| 3 | Global kapsamdaki değişkenler               |
+|---+---------------------------------------------|
+| 4 | Fonksiyonlar                                |
+|   | a - Lokal kapsamdaki değişkenler            |
+|   | b - Gerekli ise return kodu                 |
+|---+---------------------------------------------|
+| 5 | Scriptin ana içeriği                        |
+|---+---------------------------------------------|
+| 6 | Çıkış durumları                             |
+|   | a - Çeşitli çıkış durumlarında exit <DURUM> |
+|---+---------------------------------------------|
+
+* Wildcards
+|---------------+-------------------------------------------------|
+| Tanım         | Tanım olarak Wildcardlar, dosya veya dizinlerle |
+|               | eşleşen karakterler olarak özetlenebilirler.    |
+|---------------+-------------------------------------------------|
+| *             | Sıfır veya daha fazla karakterle eşleşir.       |
+|---------------+-------------------------------------------------|
+| ?             | Tam olarak bir karakterle eşleşir.              |
+|---------------+-------------------------------------------------|
+| []            | Parantezler arasındaki herhangi bir karatlerle  |
+|               | eşleşir.                                        |
+|               | Örneğin:                                        |
+|               | ca[nt]; cat ve can ile eşleşir.                 |
+|---------------+-------------------------------------------------|
+| [!]           | Parantezler içersindeki ünlemden sonraki        |
+|               | karakterler ile EŞLEŞMEZ.                       |
+|               | Örneğin:                                        |
+|               | ca[nt]; cat ve can haricindeki durumlarda       |
+|               | eşleşir.                                        |
+|---------------+-------------------------------------------------|
+| [CHAR1-CHAR2] | CHAR1'den CHAR'ye kadar olan karakterlerle      |
+|               | eşleşir.                                        |
+|               | Örneğin:                                        |
+|               | [a-g]; a'dan g'ye kadar bütün karakterlerle     |
+|               | eşleşir.                                        |
+|               | [1-3]; 1'den 3'e kadar (1 ve 3 dahil) bütün     |
+|               | karakterlerle eşleşir.                          |
+|---------------+-------------------------------------------------|
+
+** İsimlendirilmiş karakter sınıfları (bunlar bir [] çifti içersinde kullanılırlar.):
+|-----------+------------------------------------------------------|
+| [:alpha:] | Alfabetik karakterlerle (büyük veya küçük) eşleşir.  |
+|-----------+------------------------------------------------------|
+| [:alnum:] | Alfabetik veya nümerik karakterlerle eşlelir.        |
+|-----------+------------------------------------------------------|
+| [:digit:] | Nümerik karakterlerle (0-9) eşleşir.                 |
+|-----------+------------------------------------------------------|
+| [:lower:] | Küçük alfabetik karakterlerle eşleşir.               |
+|-----------+------------------------------------------------------|
+| [:space:] | Boşluklu karakterlerle (boşluk, tab, yeni satır vs.) |
+|           | eşleşir.                                             |
+|-----------+------------------------------------------------------|
+| [:upper:] | Büyük alfabetik karakterlerle eşleşir.               |
+|-----------+------------------------------------------------------|

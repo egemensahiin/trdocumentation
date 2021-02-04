@@ -1,0 +1,510 @@
+* Bilgisayar
+Bilgisyar, dış dünyadan aldığı verileri aritmetik ve mantıksal olarak
+işleyebilen ve bu işlen sonuçlarını yazılı veya görüntülü olarak bildiren,
+istenildiğinde istendiği kadar saklayabilen elektronik bir makinedir.
+bilgisayar yapısı itibarıyla donanım ve yazılım olmak üzere ikiye ayrılır.
+
+** Donanım:
+Bilgisayarın fiziksel parçalarıdır. Bilgisayarın gözle görülen bütün
+parçaları donanım olarak isimlendirilir.
+            
+:                    |--------------|
+:                    | Bellek       |
+:                    | (Memory)     |
+:                    |--------------|
+:                        ▲    |
+:                        |    |
+:                        |    ▼ 
+: |----------|       |--------------|       |-----------|
+: | Giriş    |       | İşlem        |       | Çıkış     |
+: | (Input)  | ---▶  | (Process)    | ---▶  | (Output)  |
+: |----------|       |--------------|       |-----------|
+
+    - Diyagram 1: Donanım sisteminin blok gösterimi
+
+*** 1-Giriş (Input):
+Bilgisayarın dış dünyadan veri alabildiği birimlerdir. /Klavye, fare, ışık/
+/kalemleri, mikrofon, tarayıcı/ gibi donanım parçaları örnek olarak
+verilebilir.
+      
+*** 2-Çıkış (Output):
+Bilgisyarın depoladığı verileri veya işlem sonuçlarını bildirmek için
+kullandığı aygıtlardır. /Ekran, yazıcı, çizici, hoparlör/ örnek olarak
+verilebilir.
+
+*** 3-İşlem (Process):
+Bilgisayardaki bütün aritmetiksel, mantıksal ve kontrol işlemleri *CPU*
+(Central Processing Unit/Merkezi İşlem Birimi) tarafından yapılır. CPU
+bilgisayarın beynidir demek yanlış olmaz. /İşlemci/ veya /mikroişlemci/
+olarak da adlandırılmaktadır.
+
+Mikroişlemciler içersinde aritmetik ve mantıksal işlemleri yapan *ALU*
+(Arithmetic Logic Unit) ve denetim işlemlerini gerçekleştiren *CU* (Control
+Unit) bulunur.
+      
+*** 4-Bellek (Memory):
+Bilgileri saklayan birimlerdir. Bilgisayar içersinde iki çeşit bellek
+bulunur; ana bellek ve yan bellek. Belleklerin en büyük özelliği,
+saklayabildikleri bilginin miktarı başka bir deyişle kapasiteleridir.
+
+**** 4.1-Ana bellek (Main memory):
+RAM ve ROM olmak üzere iki adettir.
+*RAM (Random Access Memory)*: Bilgisayar açık kaldığı sürece üzerinde
+çalışılan bilgileri saklamak için kullanılan bellek türüdür. Geçici bellek
+olarak da düşünülebilir. Elektrik kesilmesi veya bilgisayarın kapatılması
+durumunda kaydedilen bilgiler kaybolur. Bellek denildiğinde RAM
+anlaşılmaktadır.
+*ROM (Read Only Memory)*: Üretici firma tarafından bilgisayarın çalışması
+için gerekli olan bilgileri kaydetmek için kullanılır. Kullanıcının
+müdahalesi söz konusu değildir, yazma yetkisi yoktur. Adından da
+anlaşılabileceği gibi üzerindeki bilgiler sadece okunur.
+
+**** 4.2-Yan bellek (Secondary storage devices):
+Kullanıcı bilgilerinin istenildiği gibi saklanabildiği manyetik veya fiziksel
+depolama ortamıdır. Bilgisayar içindeki /sabit disk (harddisk), taşınabilen/
+/disket, CD-ROM/ örnektir.
+
+Bilgiler bellekte saklanırken elektriksel sinyaller olarak saklanır ve bu
+bilgilerin her birine /bit (Binary digit)/ adı verilir. Bitler sinyalin 1 mi
+yoksa 0 mı olduğunu ifade ederler çünkü bilgisayarın içersinde işlenen bütün
+bilgiler 1 ve 0'lardan oluşan bit dizileri ile ifade edilirler. Bu bitlerin 8
+tanesi bir araya gelerek en küçük bilgi birimi olan /byte/'ları oluştururlar.
+Örneğin bir "A" harfi bellekte tutulmak istenirse önce bu harfe karşılık
+gelen standart bir kod (ASCII: American Standart Code Information
+Interchange) üretilir. Bu kod on tabanında yazılmış bir sayı olup onluk
+sistemden ikilik (binary) sisteme çevrildiğinde 1 ve 0'lardan oluşan bir
+sayısal değer ortaya çıkar.
+
+|------+------------+-------------|
+| Harf | ASCII code | Binary code |
+|------+------------+-------------|
+| A    | 65         | 01000001    |
+|------+------------+-------------|
+
+Diğer ölçü birimlerindeki gibi byte'ların da üst katları vardır:
+
+|-----------+-----------------|
+| 1024 byte | 1 Kilobyte (KB) |
+| 1024 KB   | 1 Megabyte (MB) |
+| 1024 MB   | 1 Gigabyte (GB) |
+| 1024 GB   | 1 Terabyte (TB) |
+|-----------+-----------------|
+
+*** 5-Modem:
+Modulation-demodulation kelimelerinden türetilmiştir. Bilgisayarların telefon
+hatları üzerinden iletişim kurması için kullanılır. Hem bir giriş hem de bir
+çıkış birimidir.
+
+** Yazılım (Software):
+Yazılım, bilgisayarın çalışmasını sağlayan programların tamamıdır. Donanıma
+iş yaptıran bölüm yazılımdır ve 3'e ayrılır.
+
+*** 1-İşletim Sistemleri (Operating System):
+Bilgisayarın donanımı ile kullanıcı arasındaki iletişimi sayğlayan
+programların oluşturduğu bütündür. Diğer yazılımlar işletim sistemine,
+işletim sistemi de donanıma emir verir. Bir işletim sistemi fonksiyonel
+olarak kabuk (shell) ve çekirdek (kernel) olmak üzere ikiye ayrılır. Çekirdek
+bilgisayarın donanımını yönetirken kabuk ise kullanıcıya bir arabirim sunarak
+komutları yorumlar.
+
+*** 2-Paket Programlar (Application Software):
+Kullanıcının isteklerine göre hazırlanmış özel amaçlı yazılımlardır. /Yazım/
+/editörleri (vim, emacs, notpad++ vb.), döküman editörleri (LibreOffice,/
+/Microsoft Office vb.)/ ve hatta /oyunlar/ bu tip yazılımlara örnektir.
+
+*** 3-Programlama dilleri:
+Yazılımları geliştirmek için gerekli olan programlardır. Yazılımlar bu tür
+programlar sayesinde programcılar tarafından geliştirilirler. Programlama
+dilleri 3 sınıfta incelenirler.
+
+**** 3.1-Makine Dili (Machine Language):
+Sadece bilgisayarın donanımı tarafından anlaşılabilen ikili sayı kodlarından
+oluşan programlar yazılabilir. Standardize edilmemiştir. Her CPU'da ayrı bir
+makine kodu kullanılır. Programcılar için yazılması zordur.
+
+**** 3.2-Assembly Language:
+Bu dilde ikili kodların yerini, İngilizce kelimelerden esinlenilmiş
+komut kodları bulunur. Örneğin toplama için /ADD/, dallanma için /JMP/,
+çağırmak için /LOAD/ vb. Oluşturulan komut listeleri "Assembler" adı verilen
+çevirici programlarla makine koduna çevrilmektedir. Bu dil de programcılar
+için zahmetli ve yavaş yazılan bir dildir.
+
+**** 3.3-Yüksek Seviye Diller (High Level Languages):
+Assembly dilinin sınırlılıkları, yüksek seviye dillerin ortaya çıkmasına
+sebep olmuştur. Bu dillerde daha az kod yazarak daha fazla iş yaptırmak
+mümkün hale gelmiş, yazılan kodların anlaşılırlığı artmıştır. Bazı örnekler
+aşağıda verilmiştir.
+
+|---------+----------------------------------|
+| İsim    | Kullanım alanları                |
+|---------+----------------------------------|
+| FORTRAN | Bilimsel programlama             |
+|---------+----------------------------------|
+| LISP    | Yapay zeka programlama           |
+|---------+----------------------------------|
+| COBOL   | Ticari veri işleme               |
+|---------+----------------------------------|
+| PROLOG  | Yapay zeka programlama           |
+|---------+----------------------------------|
+| C       | Sistem programlama               |
+|---------+----------------------------------|
+| C++     | Obje odaklı programlama          |
+|---------+----------------------------------|
+| ADA     | Gerçek zamanlı dağıtık sistemler |
+|---------+----------------------------------|
+| Python  | Obje odaklı programlama          |
+|---------+----------------------------------|
+
+* Programlama ile ilgili kavramlar
+
+** Program ve program oluşum safhaları
+
+*** 1-Kaynak Kod (Source Code):
+Programın herhangi bir programlama dilinin kurallarına göre, o programlama
+dilinin komutları ile oluşturulmuş ilk haline kaynak kod veya kaynak dosya
+denir. Kaynak kodları esasında metin editörlerinde yazılmış düz metinlerdir.
+genellikle programlama dillerine göre farklı uzantılarla adlandırılırlar (C
+dilince .c, pythonda .py gibi).
+
+*** 2-Derleyici (Compiler):
+Metin halinde yazılan kaynak kodunun CPU tarafından çalıştırılabilmesi için
+binary formatındaki makine koduna çevrilmesi yani /compile/ edilmesi gerekir.
+Bunun için de *derleyiciler (compiler)* kullanılır. Derleyiciler, verilen
+kaynak kodunu makine koduna çevirerek amaç dosyasını/kodunu (object file)
+üretir. Bu dosya artık ikili kod biçimindedir ve bu sebeple *binary* olarak
+adlandırılır.
+
+Derleme işlemi esnasında belli hatalar alınabilir. Bu hatalar üç kategoride
+incelenir.
+
+**** 2.1-Derleme zamanı hataları (Compile Time Error):
+Genellikle kullanılan dilin syntax'ına (gramer kurallarına) uyulmadığında,
+komutlar yanlış yazıldığında veya uygun olmayan karakterler kullanıldığında
+karşılaşılan hatalardır. Bu tip hatalardan bir tane bile alınması durumunda
+program derlenemez, amaç kod oluşmaz.
+
+**** 2.2-Çalışma zamanı hataları (Run Time Error):
+Program kurallara uygun olarak yazılmıştır ve herhangi bir yazım hatası
+bulunmaz. Çalışabilir bir uygulama haline getirilmiştir fakat çalışma anında
+bir takım veriler ya da uygun olmayan ortamlar nedeniyle çalışma anında bu
+tip hatalarla karşılaşılır. En iyi örneklerden biri sıfıra bölme hatasıdır.
+
+**** 2.3-Mantıksal Hatalar (Logical Error):
+Programcının çözüm için gerekli adımların oluşturmasında, çözüm yönteminin
+yanlış olmasından ya da yanlış işleçlerin kullanılmasından kaynaklanır.
+Örneğin ">" yerine "<" kullanıldığında ne bir derleme hatası alınır ne de
+derlenen program çalışırken bir çalışma hatası alınır fakat programın
+çalışması sonucunda istenen işler yapılmaz/yanlış yapılır ve dolayısıyla
+uygun çıktılar üretilemez.
+
+* C ile programlamanın temelleri
+
+** C programlarının temel yapısı:
+Bir C programı iki temel bölümden oluşur: Önişlemci direktifleri
+(Preprocessor Directives) ve Ana fonksiyon (main function)
+
+- *Önişlemci Direktifleri*: "#" ile başlar ve program derlenmeden önce C
+önişlemcisi tarafından işletilir. Herbirinin farklı görevleri vardır. En sık
+kullanılan iki direktif *#include* ve *#define*'dır. C dilinde kullanılan her
+işlev, C'nin temel yapısı içersinde yer almaz. Bu nedenle program içinde
+kullanılan fonksiyonların kendilerinin ya da prototiplerinin yer aldığı
+dosyalar (diğer bir deyişle kütüphaneler), *#include* direktifi kullanılarak
+programa dahil edilir. Örneğin *printf* fonksiyonunun prototipi, *stdio.h*
+içersinde bulunmaktadır. Dolayısıyle eğer *printf* kullanılacaksa, *stdio.h*
+(standart input-output) kütüphanesi *#include* direktifiyle dahil
+edilmelidir. ".h" uzantılı bu dosyalar C programlama dilinde /başlık/
+/(header)/ dosyaları adı verilir.
+
+- *Main Fonksiyonu*: C dilinde yazılmış programlar genellikle birden fazla
+fonksiyondan oluşurlar. *main()* fonksiyonu, bütün C programlarında bulunması
+gereken ana fonksiyondur yani programın gövdesidir. Program çalıştırılırken
+ilk çalışacak olan fonksiyondur. Çalıştırılacak olan /ifadeler (statements)/
+*main()* fonksiyonu içersine *{}* arasına yazılır. Açılan her kıvrık parantez
+mutlaka kapatılmalıdır. Arada kalan bölüme /blok/ adı verilir. En dıştaki
+blok programın ana kısmı olup iki bölümden oluşur: *Bildiriler*
+*(declerations)* ve *İşletilenilir İfadeler (executable statements)*.
+Bildiriler programda kullanılacak değişkenlerin adlarını belirlemek amacıyla
+yazılırken işletilebilir ifadeler yapılan işlemleri yerine getiren
+komutlardır.
+
+** Basit bir C programı
+Basit bir C programında tüm bu bileşenleri görelim:
+#+BEGIN_SRC c
+
+/* C programlarında yorumlar bu şekilde yazılır */
+// Bu satır da bir yorumdur.
+#include <stdio.h>
+
+int main()
+{
+      printf("Merhaba Dünya");
+      return 0;
+}
+
+#+END_SRC
+
+** C dilinde genel yazım kuralları
+- C dili birden çok satırdan oluşan yorumlara izin verir. Tüm bir satırın
+  yorumlanması için başına "//" getirilir. Eğer birden fazla satır
+  yorumlanmak isteniyorsa veya yorum bittikten sonra kod yazılacaksa "/* */"
+  arasına yazılır.
+- C'de işletilebilir her ifade, ";" ile sonlandırılır. Bir satıra birden
+  fazla ifade yazılabilir ancak önişlemci direktifleri, mutlaka her satırda
+  yalnızca bir tane olacak şekilde yazılmalıdır.
+- C'de bütün anahtar kelimeler ve komutlar küçük harfle yazılır (*#define*
+  direktifi hariç). C büyük-küçük harf duyarlı bir dildir yani "TOPLAM",
+  "toplam" ve "topLAM" kelimelerinin hepsi C derleyicisi tarafından farklı
+  anlaşılır.
+- Program yazım kuralları dahilinde olmasa da okunabilirliği arttırmak için
+  bloklar içersine yazılan ifadelerin bir tab veya 3-4 boşluk içerden
+  yazılmasına özen gösterilmelidir.
+  *İyi bir yazım*:
+  #+BEGIN_SRC c
+  int main()
+  {
+      /*.............*/;
+      /*.............*/;
+      {
+            /*.............*/;
+            {
+                  /*.............*/;
+                  /*.............*/;
+            }
+            /*.............*/;
+            /*.............*/;
+      }
+      /*.............*/;
+  }
+  #+END_SRC
+  *Kötü bir yazım*:
+  #+BEGIN_SRC c
+  int main()
+  {
+  /*.............*/;
+  /*.............*/;
+  {
+  /*.............*/;
+  {
+  /*.............*/;
+  /*.............*/;
+  }
+  /*.............*/;
+  /*.............*/;
+  }
+  /*.............*/;
+  }
+  #+END_SRC
+
+** İşleçler (Operatörler)
+İşleçler matematiksel, mantıksal ve atama işlemlerini gerçekleştirmek için
+kullanılan simgelerdir. Bunlar ile işleme giren değerlere /işlenen (operand)/
+adı verilir. C dilinde kullanılan operatörler üç grupta incelenir.
+
+*** 1-Matematiksel İşleçler:
+|---------------+---------------------|
+| İşlem         | C dilinde karşılığı |
+|---------------+---------------------|
+| Çarpma        | *                   |
+|---------------+---------------------|
+| Modüler bölüm | %                   |
+|---------------+---------------------|
+| Bölme         | /                   |
+|---------------+---------------------|
+| Toplama       | +                   |
+|---------------+---------------------|
+| Çıkarma       | -                   |
+|---------------+---------------------|
+| Bir arttırma  | ++                  |
+|---------------+---------------------|
+| Bir eksiltme  | --                  |
+|---------------+---------------------|
+
+Bir arttırma ve bir eksiltme operatörlerinin farklı kullanımları vardır.
+Yalnız başlarına kullanıldıklarında sonuç değişmez; beraber kullanıldıkları
+değişkenin önüne ya da arkasına yazıldıklarında değerini bir arttırır ya da
+azaltırlar. Ancak bir işlem içinde kullanımlarında değişkenin sağı veya
+solunda yazılmaları işlem sonucunu değiştirir:
+|---------------------+--------------------------------------------------|
+| Yazım biçimi        | Anlamı                                           |
+|---------------------+--------------------------------------------------|
+| a++ (postincrement) | Önce a'yı kullan sonra içindeki değeri 1 arttır. |
+|---------------------+--------------------------------------------------|
+| ++a (preincrement)  | Önce a'yı 1 arttır, sonra bu arttırılmış değeri  |
+|                     | kullan                                           |
+|---------------------+--------------------------------------------------|
+| a-- (postdecrement) | Önce a'yı kullan sonra içindeki değeri 1 eksilt. |
+|---------------------+--------------------------------------------------|
+| --a (predecrement)  | Önce a'yı 1 eksilt, sonra bu arttırılmış değeri  |
+|                     | kullan                                           |
+|---------------------+--------------------------------------------------|
+
+Mesela 3 değişkenli bir durumda farklı senaryoları inceleyelim. *a = 4*
+olsun:
+|-------------+-------------------------------+--------------|
+| İşem        | İşlemlerin gerçekleşme sırası | Son değerler |
+|-------------+-------------------------------+--------------|
+| c = a++ * 5 | 1. c = a*b = 4*5 = 20         | a = 5        |
+|             | 2. a = a+1 = 4+1 = 5          | c = 20       |
+|-------------+-------------------------------+--------------|
+| c = ++a * 5 | 1. a = a+1 = 4+1 = 5          | a = 5        |
+|             | 2. c = a*b = 5*5 = 25         | c = 25       |
+|-------------+-------------------------------+--------------|
+| c = a-- * 5 | 1. c = a*b = 4*5 = 20         | a = 3        |
+|             | 2. a = a-1 = 4-1 = 3          | c = 20       |
+|-------------+-------------------------------+--------------|
+| c = ++a * 5 | 1. a = a-1 = 4-1 = 3          | a = 3        |
+|             | 2. c = a*b = 3*5 = 15         | c = 15       |
+|-------------+-------------------------------+--------------|
+
+Esasında bu tip karışık ifadelerden kaçınmak en doğrusudur. Derleyici hem
+pre hem de post increment veya decrement yapabildiği için programcı bunların
+kullanımında çok dikkatli olmalıdır. Özensiz veya hızlı bir yazımda kolayca
+hata yapılabilir.
+
+*** 2-Mantıksal İşleçler:
+|----------------------+--------------------------|
+| İşlem                | C dilindeki karşılığı    |
+|----------------------+--------------------------|
+| Büyük                | >                        |
+|----------------------+--------------------------|
+| Büyük veya eşit      | >=                       |
+|----------------------+--------------------------|
+| Küçük                | <                        |
+|----------------------+--------------------------|
+| Küçük veya eşit      | <=                       |
+|----------------------+--------------------------|
+| Eşit (karşılaştırma) | ==                       |
+|----------------------+--------------------------|
+| Eşit değil           | !=                       |
+|----------------------+--------------------------|
+| Ve (And)             | &&                       |
+|----------------------+--------------------------|
+| Veya (Or)            | \|\| (backslach olmadan) |
+|----------------------+--------------------------|
+| Değil                | !                        |
+|----------------------+--------------------------|
+
+*** 3-Atama İşleçleri:
+|-------+------------------|
+| İşleç | Anlamı           |
+|-------+------------------|
+| =     | Atama            |
+|-------+------------------|
+| +=    | Toplayarak atama |
+|-------+------------------|
+| -=    | Eksilterek atama |
+|-------+------------------|
+| *=    | Çarparak atama   |
+|-------+------------------|
+| /=    | Bölerek atama    |
+|-------+------------------|
+| %=    | Mod alarak atama |
+|-------+------------------|
+
+*** İşleçlerin Öncelik Sırası
+|---------+-----------------+------------------------------------|
+| Öncelik | İşleç           | Aynı önceliğe sahip olanlarda sıra |
+|---------+-----------------+------------------------------------|
+| 1       | ()              | Soldan sağa                        |
+|---------+-----------------+------------------------------------|
+| 2       | ++, -- ve !     | Sağdan sola                        |
+|---------+-----------------+------------------------------------|
+| 3       | *, / ve %       | Soldan sağa                        |
+|---------+-----------------+------------------------------------|
+| 4       | + ve -          | Soldan sağa                        |
+|---------+-----------------+------------------------------------|
+| 5       | <, >, <= ve >=  | Soldan sağa                        |
+|---------+-----------------+------------------------------------|
+| 6       | == ve !=        | Soldan sağa                        |
+|---------+-----------------+------------------------------------|
+| 7       | &&              | Soldan sağa                        |
+|---------+-----------------+------------------------------------|
+| 8       | \|\|            | Soldan sağa                        |
+|---------+-----------------+------------------------------------|
+| 9       | Atama işleçleri | Sağdan sola                        |
+|---------+-----------------+------------------------------------|
+
+** Değişkenlerin tanımlanması ve veri türleri
+Kullanılacak bütün değişkenlerin *kullanılmadan önce* C derleyicisine
+bildirilmeleri gerekir. Derleyiciye değişkenleri bildirme işine /değişken/
+/tanımlamak/ denir. Değişken tanımlamak, değişken için bir isim seçerek ve
+içersinde ne tür bir veri saklayacağını söyleyerek yapılır. Değişkenlerin üç
+özelliği vardır: ismi, veri türü ve değeri.
+- *İsim*: Değişkeni saklamak için ayrılmış bellek hücresine verilen isimdir.
+- *Veri Türü*: Saklanan bilginin türüdür (ondalık sayı, tam sayı, karakter vb)
+- *Değer*: Değişken içersinde saklanan bilginin kendisi.
+
+*** Değişkenlerin isimlendirilmesi:
+Program içersindeki değişkenlerin isimleri programcı tarafından belirlenir
+fakat belli kurallara uyulması gerekir.
++ Her programlama dilinin kendine ait *ayrılmış isimleri* vardır. Bunlar
+program içersindeki komutları, özel değişkenleri vb içerir.
+
+|----------+--------+---------+-----------+--------+--------+---------+----------+---------|
+| Asm      | auto   | break   | case      | cdecl  | Char   | const   | continue | default |
+|----------+--------+---------+-----------+--------+--------+---------+----------+---------|
+| Do       | double | else    | enum      | extern | far    | float   | for      | goto    |
+|----------+--------+---------+-----------+--------+--------+---------+----------+---------|
+| huge     | if     | int     | interrupt | long   | near   | pascal  | register | return  |
+|----------+--------+---------+-----------+--------+--------+---------+----------+---------|
+| short    | signed | sizeof  | static    | struct | switch | typedef | union    | void    |
+|----------+--------+---------+-----------+--------+--------+---------+----------+---------|
+| volatile | while  | fortran | _CS       | _BP    | _DI    | _SI     | _SP      | _DS     |
+|----------+--------+---------+-----------+--------+--------+---------+----------+---------|
+| _AX      | _BX    | _CX     | _DX       | _ES    | _AH    | _BH     | _CH      | _DH     |
+|----------+--------+---------+-----------+--------+--------+---------+----------+---------|
+| _SS      | _AL    | _BL     | _CL       | _DL    |
+|----------+--------+---------+-----------+--------|
+
+C programlama dili tarafından ayrılmış isimler.
+
++ Değişken isimleri içinde *a-z* ve *A-Z* arası *İngilizce harfler*, 0-9 arası
+*rakamlar* ve özel karakter olarak yalnızca *"_"* kullanılabilir. Diğer özel
+karakterler ve Türkçe karakterler (üÜçÇğĞıİöÖşŞ) kullanılamaz.
+
++ Değişken isimlerinde rakamlar kullanılabilse dahi isimler *rakamlarla*
+*başlayamaz*.
+
++ Değişken isimleri teorik olarak istenilen uzunlukta olabilir fakat C
+derleyicisi için ilk *32 karakter* belirleyicidir. Yani ilk 32 karakter aynı
+ise sonrakiler farklı olsa da derleyici tarafından aynı isim olarak
+değerlendirilirler.
+
+Bu kurallar, değişken isimleri için uyulması gereken teknik kurallardır.
+Bunlara ek olarak program alışkanlıkları açısından da uyulması gereken
+kurallar vardır.
+
+- Değişkenlere verilen isimler kolay hatırlanır ve anlaşılır olmalıdır.
+- İsimlendirmenin çok uzun veya kısa olmamasına dikkat edilir. 11-12
+  karakterlik değişken isimleri ideal kabul edilir.
+- İki kelimeden oluşan değişken isimlerinde kelimeler arasına "_"
+  konulabileceği gibi ikici kelimenin baş harfi büyük yazılarak da kelimeler
+  birbirinden ayrılabilir.
+- Tamamı büyük harften oluşan değişken isimleri tercih edilmez, yaygın olarak
+  sabitler için kullanılır. Değişkenlerin isimlerinin küçük harfli olması
+  tercih edilir.
+
+*** Veri Türleri:
+C programlama dilinde 4 temel veri türü vardır; *char*, *float*, *int* ve
+*double*
+
+- *char*: Bir harf, bir sayı veya özel bir karakteri saklayabilirler. *char*
+  tipindeki değerler _tek tırnak_ karakterleri arasında yazılmalıdır.
+  Aktarılan karakterler bellekte karakterin kendisi olarak değil ASCII
+  karşılığındaki sayı olarak tutulurlar. Bu sayede bu veriler toplama çıkarma
+  gibi işlemlerde kullanılabilirler. Örneğin *m = 'a'* ise m değişkeni
+  bellekte ASCII karşılığı yani 97 olarak tutulur. Eğer programda *m = m + 1*
+  kullanılırsa artık m değişkeni 97 değil 98 olur yani artık *'b'* verisini
+  tutmaktadır.
+- *int*: -32768 ile 32767 (DOS işletim sistemlerinde) arasındaki *tamsayı*
+  değerleri saklamak için kullanılır. C'de işaretsiz yazılan sayılar
+  pozitiftir.
+- *float*: Ondalıklı verilen sayıları ifade etmek için kullanılan değerleri
+  tanımlar.
+- *double*: Ondalıklı verilen çok küçük ve çok büyük değerleri tanımlamak
+  için kullanılır. float türünden iki kat daha duyarlıdır.
+
+*** Değişkenlerin tanımlama yerleri, şekilleri ve tanımlanması:
+Standart C dilinde değişkenler üç ayrı yerde tanımlanabilir: *Fonksiyonların*
+*üstünde*, *bloklar başlar başlamaz* (bloktan kasıt {} arası) ve
+*fonksiyonlarda parametre olarak*. 
