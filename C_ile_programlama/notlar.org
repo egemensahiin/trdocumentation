@@ -83,12 +83,15 @@ sayısal değer ortaya çıkar.
 
 Diğer ölçü birimlerindeki gibi byte'ların da üst katları vardır:
 
-|-----------+-----------------|
-| 1024 byte | 1 Kilobyte (KB) |
-| 1024 KB   | 1 Megabyte (MB) |
-| 1024 MB   | 1 Gigabyte (GB) |
-| 1024 GB   | 1 Terabyte (TB) |
-|-----------+-----------------|
+|-----------------------------+-----------------|
+| 1024 byte                   | 1 Kilobyte (KB) |
+|-----------------------------+-----------------|
+| 1024 KB                     | 1 Megabyte (MB) |
+|-----------------------------+-----------------|
+| 1024 MB                     | 1 Gigabyte (GB) |
+|-----------------------------+-----------------|
+| 1024 GB                     | 1 Terabyte (TB) |
+|-----------------------------+-----------------|
 
 *** 5-Modem:
 Modulation-demodulation kelimelerinden türetilmiştir. Bilgisayarların telefon
