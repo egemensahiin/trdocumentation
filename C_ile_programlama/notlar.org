@@ -419,7 +419,7 @@ hata yapılabilir.
 |---------+-----------------+------------------------------------|
 | 7       | &&              | Soldan sağa                        |
 |---------+-----------------+------------------------------------|
-| 8       | \|\|            | Soldan sağa                        |
+| 8       | \vert \vert     | Soldan sağa                        |
 |---------+-----------------+------------------------------------|
 | 9       | Atama işleçleri | Sağdan sola                        |
 |---------+-----------------+------------------------------------|
@@ -438,7 +438,7 @@ içersinde ne tür bir veri saklayacağını söyleyerek yapılır. Değişkenle
 Program içersindeki değişkenlerin isimleri programcı tarafından belirlenir
 fakat belli kurallara uyulması gerekir.
 + Her programlama dilinin kendine ait *ayrılmış isimleri* vardır. Bunlar
-program içersindeki komutları, özel değişkenleri vb içerir.
+  program içersindeki komutları, özel değişkenleri vb içerir.
 
 |----------+--------+---------+-----------+--------+--------+---------+----------+---------|
 | Asm      | auto   | break   | case      | cdecl  | Char   | const   | continue | default |
@@ -458,17 +458,17 @@ program içersindeki komutları, özel değişkenleri vb içerir.
 
 C programlama dili tarafından ayrılmış isimler.
 
-+ Değişken isimleri içinde *a-z* ve *A-Z* arası *İngilizce harfler*, 0-9 arası
-*rakamlar* ve özel karakter olarak yalnızca *"_"* kullanılabilir. Diğer özel
-karakterler ve Türkçe karakterler (üÜçÇğĞıİöÖşŞ) kullanılamaz.
+- Değişken isimleri içinde *a-z* ve *A-Z* arası *İngilizce harfler*, 0-9
+  arası *rakamlar* ve özel karakter olarak yalnızca "_" kullanılabilir. Diğer
+  özel karakterler ve Türkçe karakterler (üÜçÇğĞıİöÖşŞ) kullanılamaz.
 
-+ Değişken isimlerinde rakamlar kullanılabilse dahi isimler *rakamlarla*
-*başlayamaz*.
+- Değişken isimlerinde rakamlar kullanılabilse dahi isimler *rakamlarla*
+  *başlayamaz*
 
-+ Değişken isimleri teorik olarak istenilen uzunlukta olabilir fakat C
-derleyicisi için ilk *32 karakter* belirleyicidir. Yani ilk 32 karakter aynı
-ise sonrakiler farklı olsa da derleyici tarafından aynı isim olarak
-değerlendirilirler.
+- Değişken isimleri teorik olarak istenilen uzunlukta olabilir fakat C
+  derleyicisi için ilk *32 karakter* belirleyicidir. Yani ilk 32 karakter aynı
+  ise sonrakiler farklı olsa da derleyici tarafından aynı isim olarak
+  değerlendirilirler.
 
 Bu kurallar, değişken isimleri için uyulması gereken teknik kurallardır.
 Bunlara ek olarak program alışkanlıkları açısından da uyulması gereken
@@ -492,8 +492,8 @@ C programlama dilinde 4 temel veri türü vardır; *char*, *float*, *int* ve
   tipindeki değerler _tek tırnak_ karakterleri arasında yazılmalıdır.
   Aktarılan karakterler bellekte karakterin kendisi olarak değil ASCII
   karşılığındaki sayı olarak tutulurlar. Bu sayede bu veriler toplama çıkarma
-  gibi işlemlerde kullanılabilirler. Örneğin *m = 'a'* ise m değişkeni
-  bellekte ASCII karşılığı yani 97 olarak tutulur. Eğer programda *m = m + 1*
+  gibi işlemlerde kullanılabilirler. Örneğin m = 'a' ise m değişkeni bellekte
+  ASCII karşılığı yani 97 olarak tutulur. Eğer programda *m = m + 1*
   kullanılırsa artık m değişkeni 97 değil 98 olur yani artık *'b'* verisini
   tutmaktadır.
 - *int*: -32768 ile 32767 (DOS işletim sistemlerinde) arasındaki *tamsayı*
@@ -507,4 +507,34 @@ C programlama dilinde 4 temel veri türü vardır; *char*, *float*, *int* ve
 *** Değişkenlerin tanımlama yerleri, şekilleri ve tanımlanması:
 Standart C dilinde değişkenler üç ayrı yerde tanımlanabilir: *Fonksiyonların*
 *üstünde*, *bloklar başlar başlamaz* (bloktan kasıt {} arası) ve
-*fonksiyonlarda parametre olarak*. 
+*fonksiyonlarda parametre olarak*. Fonksiyonlarda parametre olarak değişken
+atanması başka bir konu. Blokların veya programın başında değişken
+tanımlanması bir zorunluluk olmamasına karşın programlama pratiği açısından
+oldukça kritiktir ve özellikle de C programlamada her zaman takip edilen bir
+kuraldır. Ayrıca okunabilirliği arttırmak için her zaman değişken
+tanımlandıktan sonra bir boş satır bırakılır.
+
+Değişkenler tanımlanırken önce değişkenin *veri türü* sonra da değişkenin
+*ismi* yazılır. Eğer ilk atama tanımlandığı yerde yapılacaksa atama işareti
+olan "=" kullanılarak tanımlandığı gibi de atama yapılabilir.
+#+BEGIN_SRC c
+// Türü  Değişken Adı
+long int ogrenciSayisi;
+ogrenciSayisi = 32;
+//veya eğer tanımlandığı yerde atama yapılacaksa
+double cezaKatsayisi = 5.05;
+#+END_SRC
+
+Aynı türdeki değişkenler tek bir satırda tanımlanabilir.
+#+BEGIN_SRC c
+int gun, ay, yil;
+#+END_SRC
+
+*main* fonksiyonundan önce tanımlanan değişkenler, eğer ilk değer
+verilmemişse sayısal veriler için sıfır, diğer veriler için boş olarak
+atanır. Fonksiyon içersinde tanımlanan değişkenler ise ilk değerleri
+verilmediğinde bellekte tanımlandıkları yerdeki rastgele değer olarak
+atanırlar. Değişkenin kullanım amacına göre bu konuya dikkat edilmelidir.
+
+* Genel girdi-çıktı (input-output) fonksiyonları
+
