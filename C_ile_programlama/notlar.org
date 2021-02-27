@@ -19,8 +19,7 @@ parçaları donanım olarak isimlendirilir.
 : | Giriş    |       | İşlem        |       | Çıkış     |
 : | (Input)  | ---▶  | (Process)    | ---▶  | (Output)  |
 : |----------|       |--------------|       |-----------|
-
-    - Diyagram 1: Donanım sisteminin blok gösterimi
+Donanım sisteminin blok gösterimi
 
 *** 1-Giriş (Input):
 Bilgisayarın dış dünyadan veri alabildiği birimlerdir. /Klavye, fare, ışık/
@@ -83,12 +82,10 @@ sayısal değer ortaya çıkar.
 
 Diğer ölçü birimlerindeki gibi byte'ların da üst katları vardır:
 
-|-----------+-----------------|
 | 1024 byte | 1 Kilobyte (KB) |
 | 1024 KB   | 1 Megabyte (MB) |
 | 1024 MB   | 1 Gigabyte (GB) |
 | 1024 GB   | 1 Terabyte (TB) |
-|-----------+-----------------|
 
 *** 5-Modem:
 Modulation-demodulation kelimelerinden türetilmiştir. Bilgisayarların telefon
@@ -108,9 +105,9 @@ bilgisayarın donanımını yönetirken kabuk ise kullanıcıya bir arabirim sun
 komutları yorumlar.
 
 *** 2-Paket Programlar (Application Software):
-Kullanıcının isteklerine göre hazırlanmış özel amaçlı yazılımlardır. /Yazım/
-/editörleri (vim, emacs, notpad++ vb.), döküman editörleri (LibreOffice,/
-/Microsoft Office vb.)/ ve hatta /oyunlar/ bu tip yazılımlara örnektir.
+Kullanıcının isteklerine göre hazırlanmış özel amaçlı yazılımlardır. Yazım
+editörleri (vim, emacs, notpad++ vb.), döküman editörleri (LibreOffice,
+Microsoft Office vb.) ve hatta oyunlar bu tip yazılımlara örnektir.
 
 *** 3-Programlama dilleri:
 Yazılımları geliştirmek için gerekli olan programlardır. Yazılımlar bu tür
@@ -204,28 +201,28 @@ Bir C programı iki temel bölümden oluşur: Önişlemci direktifleri
 (Preprocessor Directives) ve Ana fonksiyon (main function)
 
 - *Önişlemci Direktifleri*: "#" ile başlar ve program derlenmeden önce C
-önişlemcisi tarafından işletilir. Herbirinin farklı görevleri vardır. En sık
-kullanılan iki direktif *#include* ve *#define*'dır. C dilinde kullanılan her
-işlev, C'nin temel yapısı içersinde yer almaz. Bu nedenle program içinde
-kullanılan fonksiyonların kendilerinin ya da prototiplerinin yer aldığı
-dosyalar (diğer bir deyişle kütüphaneler), *#include* direktifi kullanılarak
-programa dahil edilir. Örneğin *printf* fonksiyonunun prototipi, *stdio.h*
-içersinde bulunmaktadır. Dolayısıyle eğer *printf* kullanılacaksa, *stdio.h*
-(standart input-output) kütüphanesi *#include* direktifiyle dahil
-edilmelidir. ".h" uzantılı bu dosyalar C programlama dilinde /başlık/
-/(header)/ dosyaları adı verilir.
+  önişlemcisi tarafından işletilir. Herbirinin farklı görevleri vardır. En sık
+  kullanılan iki direktif *#include* ve *#define*'dır. C dilinde kullanılan her
+  işlev, C'nin temel yapısı içersinde yer almaz. Bu nedenle program içinde
+  kullanılan fonksiyonların kendilerinin ya da prototiplerinin yer aldığı
+  dosyalar (diğer bir deyişle kütüphaneler), *#include* direktifi kullanılarak
+  programa dahil edilir. Örneğin *printf* fonksiyonunun prototipi, *stdio.h*
+  içersinde bulunmaktadır. Dolayısıyle eğer *printf* kullanılacaksa, *stdio.h*
+  (standart input-output) kütüphanesi *#include* direktifiyle dahil
+  edilmelidir. ".h" uzantılı bu dosyalar C programlama dilinde /başlık/
+  /(header)/ dosyaları adı verilir.
 
 - *Main Fonksiyonu*: C dilinde yazılmış programlar genellikle birden fazla
-fonksiyondan oluşurlar. *main()* fonksiyonu, bütün C programlarında bulunması
-gereken ana fonksiyondur yani programın gövdesidir. Program çalıştırılırken
-ilk çalışacak olan fonksiyondur. Çalıştırılacak olan /ifadeler (statements)/
-*main()* fonksiyonu içersine *{}* arasına yazılır. Açılan her kıvrık parantez
-mutlaka kapatılmalıdır. Arada kalan bölüme /blok/ adı verilir. En dıştaki
-blok programın ana kısmı olup iki bölümden oluşur: *Bildiriler*
-*(declerations)* ve *İşletilenilir İfadeler (executable statements)*.
-Bildiriler programda kullanılacak değişkenlerin adlarını belirlemek amacıyla
-yazılırken işletilebilir ifadeler yapılan işlemleri yerine getiren
-komutlardır.
+  fonksiyondan oluşurlar. *main()* fonksiyonu, bütün C programlarında bulunması
+  gereken ana fonksiyondur yani programın gövdesidir. Program çalıştırılırken
+  ilk çalışacak olan fonksiyondur. Çalıştırılacak olan /ifadeler (statements)/
+  *main()* fonksiyonu içersine *{}* arasına yazılır. Açılan her kıvrık parantez
+  mutlaka kapatılmalıdır. Arada kalan bölüme /blok/ adı verilir. En dıştaki
+  blok programın ana kısmı olup iki bölümden oluşur: *Bildiriler*
+  *(declerations)* ve *İşletilenilir İfadeler (executable statements)*.
+  Bildiriler programda kullanılacak değişkenlerin adlarını belirlemek amacıyla
+  yazılırken işletilebilir ifadeler yapılan işlemleri yerine getiren
+  komutlardır.
 
 ** Basit bir C programı
 Basit bir C programında tüm bu bileşenleri görelim:
@@ -305,17 +302,11 @@ adı verilir. C dilinde kullanılan operatörler üç grupta incelenir.
 | İşlem         | C dilinde karşılığı |
 |---------------+---------------------|
 | Çarpma        | *                   |
-|---------------+---------------------|
 | Modüler bölüm | %                   |
-|---------------+---------------------|
 | Bölme         | /                   |
-|---------------+---------------------|
 | Toplama       | +                   |
-|---------------+---------------------|
 | Çıkarma       | -                   |
-|---------------+---------------------|
 | Bir arttırma  | ++                  |
-|---------------+---------------------|
 | Bir eksiltme  | --                  |
 |---------------+---------------------|
 
@@ -324,19 +315,14 @@ Yalnız başlarına kullanıldıklarında sonuç değişmez; beraber kullanıld�
 değişkenin önüne ya da arkasına yazıldıklarında değerini bir arttırır ya da
 azaltırlar. Ancak bir işlem içinde kullanımlarında değişkenin sağı veya
 solunda yazılmaları işlem sonucunu değiştirir:
-|---------------------+--------------------------------------------------|
-| Yazım biçimi        | Anlamı                                           |
-|---------------------+--------------------------------------------------|
-| a++ (postincrement) | Önce a'yı kullan sonra içindeki değeri 1 arttır. |
-|---------------------+--------------------------------------------------|
-| ++a (preincrement)  | Önce a'yı 1 arttır, sonra bu arttırılmış değeri  |
-|                     | kullan                                           |
-|---------------------+--------------------------------------------------|
-| a-- (postdecrement) | Önce a'yı kullan sonra içindeki değeri 1 eksilt. |
-|---------------------+--------------------------------------------------|
-| --a (predecrement)  | Önce a'yı 1 eksilt, sonra bu arttırılmış değeri  |
-|                     | kullan                                           |
-|---------------------+--------------------------------------------------|
+|---------------------+--------------------------------------------------------|
+| Yazım biçimi        | Anlamı                                                 |
+|---------------------+--------------------------------------------------------|
+| a++ (postincrement) | Önce a'yı kullan sonra içindeki değeri 1 arttır.       |
+| ++a (preincrement)  | Önce a'yı 1 arttır, sonra bu arttırılmış değeri kullan |
+| a-- (postdecrement) | Önce a'yı kullan sonra içindeki değeri 1 eksilt.       |
+| --a (predecrement)  | Önce a'yı 1 eksilt, sonra bu arttırılmış değeri kullan |
+|---------------------+--------------------------------------------------------|
 
 Mesela 3 değişkenli bir durumda farklı senaryoları inceleyelim. *a = 4*
 olsun:
@@ -366,21 +352,13 @@ hata yapılabilir.
 | İşlem                | C dilindeki karşılığı |
 |----------------------+-----------------------|
 | Büyük                | >                     |
-|----------------------+-----------------------|
 | Büyük veya eşit      | >=                    |
-|----------------------+-----------------------|
 | Küçük                | <                     |
-|----------------------+-----------------------|
 | Küçük veya eşit      | <=                    |
-|----------------------+-----------------------|
 | Eşit (karşılaştırma) | ==                    |
-|----------------------+-----------------------|
 | Eşit değil           | !=                    |
-|----------------------+-----------------------|
 | Ve (And)             | &&                    |
-|----------------------+-----------------------|
 | Veya (Or)            | \vert \vert           |
-|----------------------+-----------------------|
 | Değil                | !                     |
 |----------------------+-----------------------|
 
@@ -389,15 +367,10 @@ hata yapılabilir.
 | İşleç | Anlamı           |
 |-------+------------------|
 | =     | Atama            |
-|-------+------------------|
 | +=    | Toplayarak atama |
-|-------+------------------|
 | -=    | Eksilterek atama |
-|-------+------------------|
 | *=    | Çarparak atama   |
-|-------+------------------|
 | /=    | Bölerek atama    |
-|-------+------------------|
 | %=    | Mod alarak atama |
 |-------+------------------|
 
@@ -406,21 +379,13 @@ hata yapılabilir.
 | Öncelik | İşleç           | Aynı önceliğe sahip olanlarda sıra |
 |---------+-----------------+------------------------------------|
 | 1       | ()              | Soldan sağa                        |
-|---------+-----------------+------------------------------------|
 | 2       | ++, -- ve !     | Sağdan sola                        |
-|---------+-----------------+------------------------------------|
 | 3       | *, / ve %       | Soldan sağa                        |
-|---------+-----------------+------------------------------------|
 | 4       | + ve -          | Soldan sağa                        |
-|---------+-----------------+------------------------------------|
 | 5       | <, >, <= ve >=  | Soldan sağa                        |
-|---------+-----------------+------------------------------------|
 | 6       | == ve !=        | Soldan sağa                        |
-|---------+-----------------+------------------------------------|
 | 7       | &&              | Soldan sağa                        |
-|---------+-----------------+------------------------------------|
 | 8       | \vert \vert     | Soldan sağa                        |
-|---------+-----------------+------------------------------------|
 | 9       | Atama işleçleri | Sağdan sola                        |
 |---------+-----------------+------------------------------------|
 
@@ -442,17 +407,11 @@ fakat belli kurallara uyulması gerekir.
 
 |----------+--------+---------+-----------+--------+--------+---------+----------+---------|
 | Asm      | auto   | break   | case      | cdecl  | Char   | const   | continue | default |
-|----------+--------+---------+-----------+--------+--------+---------+----------+---------|
 | Do       | double | else    | enum      | extern | far    | float   | for      | goto    |
-|----------+--------+---------+-----------+--------+--------+---------+----------+---------|
 | huge     | if     | int     | interrupt | long   | near   | pascal  | register | return  |
-|----------+--------+---------+-----------+--------+--------+---------+----------+---------|
 | short    | signed | sizeof  | static    | struct | switch | typedef | union    | void    |
-|----------+--------+---------+-----------+--------+--------+---------+----------+---------|
 | volatile | while  | fortran | _CS       | _BP    | _DI    | _SI     | _SP      | _DS     |
-|----------+--------+---------+-----------+--------+--------+---------+----------+---------|
 | _AX      | _BX    | _CX     | _DX       | _ES    | _AH    | _BH     | _CH      | _DH     |
-|----------+--------+---------+-----------+--------+--------+---------+----------+---------|
 | _SS      | _AL    | _BL     | _CL       | _DL    |
 |----------+--------+---------+-----------+--------|
 
@@ -537,4 +496,820 @@ verilmediğinde bellekte tanımlandıkları yerdeki rastgele değer olarak
 atanırlar. Değişkenin kullanım amacına göre bu konuya dikkat edilmelidir.
 
 * Genel girdi-çıktı (input-output) fonksiyonları
+Veriler bir değişkene atılarak verilebileceği gibi bir *girdi aygıtı*
+kullanılarak da (klavye, mouse vb.) verilebilir. Bu işleme /girdi/
+/operasyonu/ denir. Hesaplanan sonuçları ve/veya bellekte tutulan değerleri
+kullanıcıya gösterme işlemine ise /çıktı operasyonu/ denilmektedir.
+
+Yaygın olarak kullanılan giriş-çıkış fonksiyonları, C standart giriş-çıkış
+kütüphanesinde bulunur ve *stdio.h* (standart input-output) header dosyası
+ile derleyiciye *#include* önişlemci direktifi ile bildirilir.
+
+#+BEGIN_SRC c
+#include <stdio.h>
+#+END_SRC
+
+** /printf/ Fonksiyonu:
+Değişkenlerin değerlerini, hesaplanan sonuçları veya istenen mesajları ekrana
+yazdırmak için kullanılır.
+
+Syntax:
+: printf("Çıktı metin (string) formatı", değişkenlerin listesi)
+veya değişken kullanılmayacaksa:
+: printf("String formatı")
+şeklindedir.
+
+Değişkenlerin kullanılması pythondan farklıdır. Pythonda stringler kendileri
+veri türüdür ve içersinde değişkenlerin kullanılması için formatlanması
+gerekir. Öte yandan C'de stringler hali hazırda bir metin formatıdır ve *yer*
+*tutucular* yardımı ile formatlanırlar. Yer tutucular "%" ile başlarlar.
+Syntax'ları aşağıdaki gibidir:
+
+: %[önek][genişlik][.duyarlılık]<format karakteri>
+
+|------------------+--------------------------------------------------------------------------|
+| Format Karakteri | Anlamı                                                                   |
+|------------------+--------------------------------------------------------------------------|
+| d, i             | Tamsayı değişkenler (Onluk sistemde)                                     |
+| ld               | Uzun tamsayılar için                                                     |
+| lx               | Uzun tamsayılar (16'lık hex sistemde)                                    |
+| o                | İşaretsiz tamsayı değişkenler için (sekizlik sistemde)                   |
+| x                | İşaretsiz tamsayı değişkenler için (hex sisteminde)                      |
+| X                | İşaretsiz tamsayı değişkenler için (hex sisteminde, büyük harfle)        |
+| u                | İşaretsiz tamsayılar için                                                |
+| c                | Char tipindeki değişkenler için                                          |
+| s                | Metin (string)                                                           |
+| f                | float ve double değişkenler için                                         |
+| E,e              | float ve double değişkenlerin üstel gösterimi için                       |
+|------------------+--------------------------------------------------------------------------|
+|------------------+--------------------------------------------------------------------------|
+| Önek Karakteri   | Anlamı                                                                   |
+|------------------+--------------------------------------------------------------------------|
+| +                | Pozitif olanlar başında "+" ile yazdırılır.                              |
+| -                | Sayı genişliği büyük verilmişse sola dayalı yazar.                       |
+| 0                | Sayı genişliği büyük verilmişse soldaki boşlukları sıfırlar ile doldurur |
+|------------------+--------------------------------------------------------------------------|
+
+- Genişlik sayının ne kadarlık karakter alanına yazılacağını belirler.
+  /double/ ve /float/ tipindeki değişkenlerde *genişlik.duyarlılık* şeklinde,
+  virgülden sonra kaç basamak uzunluğunda yazılacağı belirtilir. Stringlerde
+  "/" karakteri *escape karakter*idir ve bundan sonrasında gelen karakter
+  kaçış serisini ifade eder:
+
+|--------------+------------------------------------|
+| Kaçış serisi | Anlamı                             |
+|--------------+------------------------------------|
+| \n           | İmleç sonraki satır başında durur. |
+| \t           | İmleç sonraki tab stop'ta durur.   |
+| \a           | Alarm (beep sesi).                 |
+| \\           | Backslach yazdırmak için.          |
+| \"           | Tırnak işareti yazdırmak için.     |
+|--------------+------------------------------------|
+
+Örnek bir kaç program görelim:
+#+BEGIN_SRC c
+#include <stdio.h>
+
+int main()
+{
+    int yas = 25;
+    float oran = 0.18;
+    char cinsiyet = 'E';
+
+    printf("\n") // Boş bir satır yazdırır.
+    printf("Cinsiyetiniz: %c\tYaşınız: %d\n", cinsiyet, yas)
+    printf("Güncel \"KDV\" oranı %+.4f", oran)
+}
+#+END_SRC
+
+** /scanf/ fonksiyonu:
+Değişkenlerin içine klavyeden değer atamak için kullanılır. Syntax'ı
+aşağıdaki gibidir:
+
+: scanf("String formatı", değişkenin listesi)
+
+İlk argüman printf fonksiyonundaki gibi string formatıdır. Değişken
+listesinde dışarıdan girilecek değişkenler başında "&" işareti ile
+yazılırlar. Bu işarete *adres operatörü* denir. Her bellek hücresinin bir
+adresi vardır ve & işareti, peşine yazılan değişkenin bellek adresini üretir,
+dışarıdan girilen değerin adresi verilen bellek hücresine aktarılmasını
+sağlar. Değer girdisinin sonlandırılması için /Enter/ tuşuna basılır ve bu
+andan itibaren değerde dışarıdan müdahale ile değişiklik yapılamaz. Yan yana
+girilen değerlerde (aşağıdaki örnekte olduğu gibi) boşluk veya tab tuşları da
+sonraki değişkene geçmemizi sağlar. *scanf* içersinde stringlerle girdi
+mesajı yazıldığında hata alındığından bilgi mesajları *printf* ile yazılır.
+
+#+BEGIN_SRC c
+#include <stdio.h>
+int main()
+{
+    int yas, agirlik;
+    scanf("%d%f", &yas, &agirlik);
+}
+#+END_SRC
+
+* Akış kontrol yapıları
+Normal şartlar altında programlar ilk satırdan son satıra doğru diğer bir
+deyişle yukarıdan aşağıya doğru ilerler. Elbetteki programlarımızda
+kurduğumuz her mantığı bu kurala uydurmamız mümkün değil. Bu amaçla programın
+veya fonksiyonun çalışma akışını konrol eden mekanizmalara *kontrol yapıları*
+denir. C dilinde *sıralı*, *seçimli* ve *tekrarlı* olmak üzere 3 çeşit
+kontrol yapısı mevcuttur. Şu ana kadar gördüğümüz örnekler sıralı yapılara
+örnektir.
+
+** /if/ anahtar kelimesi:
+Verilen durum ya da koşulun *doğru* veya *yanlış* olmasına göre istenilen
+işlem veya işlemleri gerçekleştirmek için kullanılan *seçimli* kontrol
+yapılarıdır.
+Syntax'ı şu şekildedir:
+
+: if(koşul)
+:     komut;
+
+Bu yapıda *if* komutundan sonra gelen koşul doğru ise koşuldan sonra komut
+çalışır. Eğer birden fazla komut çalıştırılacaksa bir blok içinde
+yazılmalıdır. Esasında tek komut da olsa blok içersinde yazmak okunabilirlik
+açısından daha iyidir.
+
+: if(koşul){
+:     komut1;
+:     komut2;
+:     ...   ;
+:     ...   ;
+:     komutN;
+: }
+
+Örneğin:
+#+BEGIN_SRC c
+if(yas > 18){
+    printf("Yasiniz 18'den buyuk umarım basiniz goge ermistir.");
+}
+#+END_SRC
+
+Eğer koşulun yanlış olması durumunda bir alternatif blok çalıştırılmak
+isteniyorsa *else* komutu kullanılır:
+
+: if(koşul){
+:     komut1;
+:     komut2;
+:     komut3;
+: }
+: else{
+:     komut4;
+:     komut5;
+:     komut6;
+: }
+
+Örneğin:
+#+BEGIN_SRC c
+if(yas > 18){
+    printf("Yasiniz 18'den buyuk umarım basiniz goge ermistir.");
+}
+else{
+    printf("Yasiniz 18'den büyük degil tuh...");
+}
+#+END_SRC
+
+Eğer bir doğru veya değil durumundan ziyade, birkaç farklı koşula bağlı bir
+program yazıyorsak sırayla bir kaç tane *if* kullanabiliriz fakat bu bize çok
+temiz bir kod sunmaz. Mesela aynı değişkenin farklı koşullarında bu çok da
+iyi bir kullanım değildir. Bu amaçla else ve if'i bir arada kullanabiliriz:
+
+: if(koşul1){
+:     komut1;
+:     komut2;
+: }
+: else if(koşul2){
+:     komut3;
+:     komut4;
+: }
+: else{
+:     komut5;
+: }
+
+Sadece *if*ler kullanarak bu ifadeyi yazdığımızda program çalışırken bütün
+ifadeler okunacaktır fakat bu durumda koşullardan biri sağlandığında program
+kalanını okumayı bırakır.
+
+Örneğin:
+
+#+BEGIN_SRC c
+if(yas > 18){
+    printf("Yasiniz 18'den buyuk umarım basiniz goge ermistir.");
+}
+else if(yas == 18){
+    printf("Ooo buyumussun kiral.")
+}
+else{
+    printf("Yasiniz 18'den kucuk tuh...");
+}
+#+END_SRC
+
+** Üçlü şart operatörü (?:):
+Bu operatör, üç adet operand alır. Esasında *if(koşul){}; else{}* yerine
+kullanılır. Operatörün kendisi, iki komponentten yani "?" ve ":"
+kısımlarından oluşur. "?" önündeki operandın sonucu doğru yani 0'dan farklı
+ise "?" ve ":" arasındaki operand çalışır. Aksi takdirde ":" sağındaki
+operand çalışır. Syntax'ı şöyle özetlenebilir:
+
+:    |---doğru---|
+:    |           ▼ 
+: operand1 ? operand2 : operand3 ;
+:    |                      ▲ 
+:    |--------yanlış--------|
+
+Örnek vermek gerekirse 60 ortalama geçer not iken öğrenci geçti mi kaldı mı
+algoritması iki şekilde yazılabilir:
+#+BEGIN_SRC c
+ortalama >= 60 ? printf("Tebrikler! Gectiniz.") : printf("Seneye gorusuruz canim..");
+#+END_SRC
+veya
+#+BEGIN_SRC c
+if(ortalama >= 60)
+    printf("Tebrikler! Gectiniz.");
+else
+    printf("Seneye gorusuruz canim..");
+#+END_SRC
+
+Görülebileceği gibi üçlü şart operatörü çok daha temiz bir kod yazmamızı
+sağlar.
+
+** /switch/ çoklu seçim anahtar kelimesi:
+*switch* anahtar kelimesi, verilen ifadenin değerine göre verilen komut veya
+komutları çalıştırır. Verilen ifadenin değerlerinin *ordinal (sıralı giden)*
+olması gerekir. Bu ifadede kullanılacak veri tipleri *int* ve *char* olabilir
+fakat float, double gibi ondalık değerler kullanılamaz. İfadenin aranan
+değerleri, *case* anahtar kelimesiyle belirtilir. Syntax'ı şu şekildedir:
+
+: switch(ifade){
+:     case <değer1>:
+:         komut1;
+:         [break;]
+:     ...
+:     ...
+:     ...
+:     case <değern>:
+:        komutN;
+:        [break;]
+:     [default: komutN;]
+: }
+
+Mesela 1'den 5'e kadar verilen bir sayının okunuşunu yazdıran bir programda
+swtich komutunun kullanımı şu şekildedir:
+
+#+BEGIN_SRC c
+// Yanlış kullanım
+switch(sayi){
+    case 1:
+        printf("Bir");
+    case 2:
+        printf("İki");
+    case 3:
+        printf("Üç");
+    case 4:
+        printf("Dört");
+    case 5:
+        printf("Beş");
+    default: printf("Yanlış bir değer girdiniz.");
+}
+#+END_SRC
+
+Eğer *break* anahtar kelimesi kullanılmazsa, program uygun durumu bulduktan
+sonra da sonraki *case*'leri yani durumları kontrol etmeye devam eder. Yani
+bu programa "3" girdisi verildiğinde çıktı şöyle olur:
+
+: 1'le 5 arasında bir sayı giriniz: 3
+: ----------------------
+: Üç Dört Beş Yanlış bir değer girdiniz
+
+*break* anahtar kelimesi okunduğunda, *switch* bloğu sonlanır sonraki
+istenmeyen satırlar çalışmaz. Programın istenen çıktıyı vermesi için şu
+şekilde yazılması gerekir.
+
+#+BEGIN_SRC c
+// Doğru kullanım
+switch(sayi){
+    case 1:
+        printf("Bir");
+        break;
+    case 2:
+        printf("İki");
+        break;
+    case 3:
+        printf("Üç");
+        break;
+    case 4:
+        printf("Dört");
+        break;
+    case 5:
+        printf("Beş");
+        break;
+    default: printf("Yanlış bir değer girdiniz.");
+}
+#+END_SRC
+
+Bu durumda alınan çıktı şöyle olur:
+
+: 1'le 5 arasında bir sayı giriniz: 3
+: ----------------------
+: Üç
+
+Her durumda *break* anahtar kelimesini kullanmak istemeyiz. Mesela iki
+değerin sonucu olarak bir komut çalıştırmak istiyorsak alt alta iki *case*
+ifadesi yazarız ve ilk boş *case*'imizden sonra *break* ifadesi kullanmayız.
+Mesela cinsiyete göre vücut kitle endeksi hesaplayan bir programda hem 'K'
+hem de 'k' için aynı komutu kullanırız:
+
+#+BEGIN_SRC c
+switch(cinsiyet){
+    case 'k':
+    case 'K':
+        /* Komutlar */;
+        break;
+    case 'e':
+    case 'E':
+        /* Komutlar */;
+        break;
+    default: 
+        /* Komutlar */;
+}
+#+END_SRC
+
+* Döngüler (Loop'lar)
+
+Döngüler, program akışını kontrol etmenin bir başka yoludur. Belirli bir
+mantığı içeren program adımlarının tekrarlanması olarak özetlenebilirler.
+
+** /goto/ ile sayaç (counter) kontrollü döngüler:
+
+Yapılacak tekrar miktarının bilindiği durumlarda döngüler bir sayaç
+kullanarak tasarlanabilir. Sayaç, döngünün kaç defa tekrarlandığını tutan bir
+değişkendir. Döngünün her adımda sayaç arttırılır veya azaltılır. Döngünün
+sonunda, sayacın istenilen değere gelip gelmediği kontrol edilerek döngü
+sınırlanır.
+
+Sayaç kontrollü döngüleri oluşturmanın en ilkel yolu (tabir yanlış olabilir
+ama yöntem gerçekten de eski) *goto* anahtar kelimesi ve başlıklar
+kullanılmasıdır. Syntax şu şekildedir:
+
+: int sayac;
+: sayac = <baslangic degeri>;
+: 
+: BASLA:
+:     <komut1>;
+:     <komut2>;
+:     ...
+:     ...
+:     <komutn>;
+:     sayac = sayac <+ veya -> <adım miktarı>
+:     if(sayac <karşılaştırma operatörü> <bitiş değeri>)
+:         goto BASLA
+
+Örnek bir kullanım görelim. Mesela 100 defa "Merhaba Dunya!" yazdırmak için:
+
+#+BEGIN_SRC c
+#include <stdio.h>
+int main(){
+	int sayac = 1;
+DONGU:
+	printf("Merhaba Dunya!\n");
+	sayac++;
+	if (sayac <= 100)
+		goto DONGU;
+	return 0;
+}
+#+END_SRC
+
+Görülebileceği gibi *goto* kullanımı pek de pratik değil. Programın mantığı
+açısından bir sıkıntı yok ama diğer metodlara göre ekstra kod yazmamız
+gerekiyor döngünün kendisi *if* ile koşullanmış bir ifadeye bağlı (ki C
+programlama dilinde if ile koşullanan ifadelerin zaman zaman programları
+yavaşlattığı bilinmektedir).
+
+** /while/ döngüleri:
+
+*while* anahtar kelimesi kendisini oldukça açıklar nitelikte. Verilen bir
+*koşul/durum doğru olduğu sürece* bir takım komutların yürütülmesini sağlar.
+Syntax'ı şu şekildedir:
+
+: while(koşul | durum){
+:     komut1;
+:     ...
+:     ...
+:     komutN;
+: }
+
+Eğer koşul veya durum hiçbir zaman yanlış (veya 0) olmazsa program akışı
+döngünün dışına çıkamaz ve RAM dolana kadar döngü içersindeki komutlar
+sürekli tekrar ederek bir /sonsuz döngü (infinite loop)/ oluşturur. Mesela
+yukarda *goto* ile yazılan kodu bir de *while* ile yazalım:
+
+#+BEGIN_SRC c
+#include <stdio.h>
+int main(){
+    int sayac = 1;
+    while(sayac <= 100){
+        printf("Merhaba Dünya!\n");
+        sayac++;
+    }
+    return 0;
+}
+#+END_SRC
+
+Yalnızca satır sayısına baktığımızda bir satır kazandığımızı düşünebiliriz
+fakat kodun okunabilirliği, *while* döngüsünde çok daha iyidir.
+
+** Gözcü kontrollü (sentinel controlled) döngüler:
+
+Çalıştırılması gereken adımların tekrar sayısı belli olmadığında döngüyü
+tekrar sayısına değil bir "gözcü değer"e bağlarız. Program kullanıcının
+dışarıdan belli bir değer veya değer grubundan birinin girdi olarak verilmesi
+veya program içersinde belli bir değerin oluşmasına göre sonlandırılır.
+Mesela klavyeden "-1" değeri girilinceye kadar alınan sayıların ortalamasını
+hesaplayan bir program şöyle yazılabilir:
+
+#+BEGIN_SRC c
+#include <stdio.h>
+int main(){
+    long toplam = 0;
+    int sayi, adet = 0;
+    float ortalama;
+    printf("Sayi giriniz (Sonlandirmak icin -1): ");
+    scanf("%d", &sayi);
+    while(sayi != -1){
+        toplam += sayi;
+        adet++;
+        printf("Sayi giriniz (Sonlandirmak icin -1): ");
+        scanf("%d", &sayi);
+    }
+    ortalama = toplam / adet;
+    printf("----------------\n");
+    printf("Verilen tum sayilarin ortalamasi: %.2f\n", ortalama);
+    return 0;
+}
+#+END_SRC
+
+** /for/ döngüleri:
+*for* döngüleri, özellikle de tekrar edilen işlem sayısının belli olduğu
+durumlarda kullanılan başka bir yapıdır. Sayaç kontrollü döngülerde
+kullanımı, *while* döngülerinden daha kısa ve çoğu zaman daha uygundur.
+Syntax'ı aşağıdaki gibidir:
+
+: for(DöngüDeğişkeni = ilkDeğer; DöngüKoşulu; AdımMiktarı){
+:     komut1;
+:     komut2;
+:     ...
+:     komutN;
+: }
+
+*for* döngüleri görülebileceği gibi 3 bileşenle tanımlanır. Döngü değişkenine
+ilk değerinin atanması yalnızca *for* komutunun ilk defa okunmasında çalışır.
+/Döngü koşulu/, her seferinde *döngüye girmeden önce* kontrol edilir ve eğer
+doğru ise veya 0'dan farklı ise döngüye devam edilir. Döngü her sonlandığında
+/adım miktarı/ kısmı çalışır ve görevi, döngü değişkenini güncellemektir.
+Mesela i döngü değişkeni için *i++*, *i--* veya *i += N* gibi kullanılabilir.
+Bir *for* ifadesi, her zaman *while* ifadesi olarak yazılabilir:
+
+: DöngüDeğişkeni = ilkDeğer;
+: while(DöngüKoşulu){
+:     komut | komutlar;
+:     AdımMiktarı;
+: }
+
+Çok güzel bir for döngüsü örneği, bir sayının asallığının kontrolüdür (neden
+bilmiyorum ben bu programı çok seviyorum). Programı yazıp bir bakalım:
+#+BEGIN_SRC c
+#include <stdio.h>
+int main(){
+    long sayi;
+    int test = 1; // default varsayim, sayinin asal oldugu.
+    long i; // dongu degiskenimiz.
+    printf("Bir sayi giriniz: ");
+    scanf("%d", &sayi);
+    printf("-----------------\n");
+    if(sayi == 1)
+        test = 0;
+    else{
+        for(i = sayi -1; i > 1 && test == 1; i--){
+            if(sayi % i == 0)
+    		    test = 0;
+    	}
+    }
+    if(test)
+    	printf("Yazdığınız sayi asaldir.\n");
+    else
+    	printf("Yazdiginiz sayi asal degildir.\n");
+    return 0;
+}
+#+END_SRC
+
+** /do-while/ döngüsü:
+*while* döngülerine benzer yapıda olan *do-while* döngüleri, önce komutları
+alır daha sonra /döngü koşulunu/ kontrol eder. Yani döngü başlamadan önce,
+döngü gövdesindeki komutlar bir defa çalışır, ardından *while* döngüsü gibi
+çalışmaya devam eder. Syntaxı şu şekildedir:
+
+: do{
+:     komut1;
+:     ...
+:     komutN;
+: }while(koşul | durum);
+
+Her *do-while* döngüsü, aşağıdaki gibi bir *while* döngüsü olarak
+yazılabilir:
+
+: komut | komutlar;
+: while(koşul | durum){
+:     komut | komutlar;
+: }
+
+Tüm bu farklı döngüler, birbirleri şeklinde yazılabilir ve birbirlerine
+benzer işleri yapabilir. Aralarında özellikle iş akışı ve algoritmanın oluşma
+şekli açısından ufak farklar vardır fakat hangisinin nasıl ve nerede
+kullanılacağı çoğunlukla programlama alışkanlığı ile ilgilidir. Mesela
+zorlarsak *for* döngülerini de *while* döngüleri gibi /gözcü kontrollü/ hale
+getirebiliriz fakat hem pratik değildir hem de kodun okunabilirliği azalır
+veya döngü başlamadan önce komutların bir kez çalışmasını istiyorsak bunu
+*while* döngüsüyle yapmanın anlamı yoktur, basitçe *do-while* döngülerinden
+faydalanabiliriz. Bunlar göz önünde bulundurularak programcının hangi
+döngünün uygun olduğuna karar vermesi daha doğrudur.
+
+Mesela döngü seçimine bir örnek olarak yukarıda oluşturduğumuz /ortalama/
+/hesaplama/ uygulamasını gösterebiliriz. Burada *printf* ve *scanf*
+satırlarını iki defa kullanmak yerine şunu yapabiliriz:
+#+BEGIN_SRC c
+do{
+    printf("Sayi giriniz (Sonlandirmak icin -1): ");
+    scanf("%lf", &sayi);
+    if(sayi != -1){
+        toplam += sayi;
+        adet++;
+    }
+}while(sayi != -1);
+#+END_SRC
+
+** İç içe (nested) döngüler:
+
+İki döngünün birlikte kullanıldığı fakat bu birlikte kullanım ilişkisinin
+birbirine bağlı olduğu döngülerdir. Dıştaki döngünün her adımında, içteki
+döngü adım adım çalışır. Başka bir deyişle içteki döngü her sonlandığında
+dıştaki döngü bir adım daha çalışır ve içteki döngü baştan döner.
+
+Örneğin aşağıdaki döngüyü inceleyecelim:
+#+BEGIN_SRC c
+n = 0;
+for(i = 1; j <= 4; i++)
+    for(j = 1; j <= 3; j++)
+        n = n + 1;
+#+END_SRC
+
+Yukarıdaki örnekte içteki döngü 3 defa çalışır. Dıştaki döngü de içteki
+döngüyü 4 defa çalıştırır. Dolayısıyla döngü toplamda 12 defa çalışacağından
+sonuçta *n* değişkeni *12 defa 1 ile toplanır* ve son değeri 12 olur.
+
+|---+---|
+| i | j |
+|---+---|
+| 1 | 1 |
+|   | 2 |
+|   | 3 |
+|---+---|
+| 2 | 1 |
+|   | 2 |
+|   | 3 |
+|---+---|
+| 3 | 1 |
+|   | 2 |
+|   | 3 |
+|---+---|
+| 4 | 1 |
+|   | 2 |
+|   | 3 |
+|---+---|
+
+Tabloda da adımların nasıl tekrar edildiği ve neden toplam 12 adım olduğu
+görülmektedir. İç içe döngülerin kullanımında syntaxa oldukça dikkat
+edilmelidir. Mesela aşağıdaki kod satırı bir iç içe döngü belirtmez:
+
+#+BEGIN_SRC c
+for(i = 1; j <= 4; i++);
+    for(j = 1; j <= 3; j++)
+#+END_SRC
+
+İlk *for* ifadesinin sonundaki ";" sonraki döngünün, bu döngü altında
+işlenmesini engeller. Doğal olarak da döngüler iç içe değildir ve istenilen
+sonuç elde edilemez.
+
+** /break/ deyimi:
+
+*break* deyimi, daha önce *switch-case* yapısına benzer şekilde döngülerde de
+kullanılır. Döngü içersinde *break* komutunun amacı, çalıştığı yerde döngüyü
+sonlandırarak program akışını döngü dışına yönlendirmektir. Bu noktada
+program akışı döngü dışındaki ilk satırdan devam eder. Örnek olarak aşağıdaki
+programı inceleyelim:
+
+#+BEGIN_SRC c
+#include <stdio.h>
+int main(){
+    int i;
+    for(i = 0; i <= 5; i++){
+        if(i == 3)
+            break;
+        printf("i = %d\n", i);
+    }
+    return 0;
+}
+#+END_SRC
+
+Mesela burada döngüyü i'nin 5 veya daha küçük değerleri ile oluşturmuş olsak
+da i = 3 olduğunda *if* koşulu sağlanır ve *break* komutu çalışarak /bir üst/
+/seviyedeki/ döngüyü sonlandırır. Bu programın çıktısı şu şekilde olur:
+
+: i = 0
+: i = 1
+: i = 2
+
+** /continue/ deyimi:
+
+*break* deyimine benzer şekilde döngüleri şartlandırmak için kullanılır fakat
+*continue* deyimi döngüyü bitirmek yerine çalıştığı yerde bir üst seviyedeki
+döngünün /sonraki adımına geçer/. Örnek üzerinden incelemek gerekirse:
+
+#+BEGIN_SRC c
+#include <stdio.h>
+int main(){
+    int i;
+    for(i = 0; i <= 5; i++){
+        if(i == 3)
+            continue;
+        printf("i = %d\n", i);
+    }
+    return 0;
+}
+#+END_SRC
+
+Bu program çalıştığında i = 3 olduğunda bu sefer *continue* komutu çalışır ve
+program döngünün bir sonraki adımına geçer yani i = 3 için *printf*
+fonksiyonu *çalışmaz*. Çıktı aşağıdaki gibi olur:
+
+: i = 0
+: i = 1
+: i = 2
+: i = 4
+: i = 5
+
+* Fonksiyonlar
+
+Bu noktaya kadar kullandığımız konseptler (döngüler, değişkenler vs.)
+programlamanın temel ögelerinden olsalar da tek başlarına karmaşık bir
+problemi çözmede yetersiz kalmaktadırlar. Fonksiyonları kullanmanın iki
+önemli amacı vardır. Bunlardan biri, program mantığını farklı bölümlere
+ayırarak uzun kaynak kodlarına sahip programların daha kolay
+değiştirilebilmesini, özelleştirilebilmesini, tamir edilebilmesini sağlamak,
+mantığı daha okunabilir hale getirmektir. Fonksiyonların bir diğer faydası da
+devamlı tekrar eden /mantık/ları yalnız bir defa yazarak programın farklı
+yerlerinde kullanabilmemizi sağlamasıdır. Mesela /donguler/ klasorunda
+/sacma_bi_program.c/ kodunu inceleyecek olursak üs almak icin kullandığımız
+mantığı 4 defa kullandığımızı görürüz. Halbuki bunu tek bir defa /us_alma/
+*fonksiyonu* şeklinde yazıp 4 defa kullanmak programı daha okunabilir kılar
+ve kısaltır.
+
+Fonksiyonların çalıştırılması işine /çağırma/ denir. Her fonksiyon *ismi*
+ve kendisinden istenen işi gerçekleştirmek için ihtiyaç duyduğu değerler yani
+*parametler* veya *argümanlar* ile çağırılırlar. Fonksiyonlar kendilerine
+verilen argümanlarla beraber yaptıkları işlerin sonuçlarını, kendilerini
+çağıran fonksiyona bildirirler ve bu değere *return value* denir.
+
+Örneğin sqrt fonksiyonu bir sayının karekökünü alır.
+
+: a = sqrt(x);
+
+şeklinde fonksiyon çağırıldığında, fonksiyon ismi /sqrt/, argüman(lar) /x/,
+reutn değeri ise /a değişkenine atanan değer/dir.
+
+C dilinde yönetici fonksiyon *main()* fonksiyonudur ve program çalışmaya
+*main()* fonksiyonundan başlar. *main()* fonksiyonu diğer fonksiyonları
+çağırarak çalıştırır. Örnek bir fonksiyon hiyerarşisi şöyle olabilir:
+
+:             main()
+:             / | \
+:      |-----|  |  |-----|
+:      |        |        |
+:    func1()  func2()  func3()
+:     /  \
+: |--|    |--|
+: |          |
+: func4()    func5()
+
+** Standart fonksiyonlar
+
+Bu fonksiyonlar C dili geliştiricileri tarafından programcının kullanımı
+için yazılmış hazır fonksiyonlardır. Teknik olarak C dilinin parçası
+değillerdir fakat C dili için standardize edilmişlerdir. Bunların
+/prototip/leri header dosyalarında bulunur ve kullanılmak istendiğinde
+*include* önişlemci direktifi ile bildirilerek kullanılabilirler.
+
+*** 1- Math kütüphanesi (/math.h/):
+
+Bu kütüphane içersinde matematiksel işlemleri gerçekleştirmek için kullanılan
+fonksiyonlar mevcuttur. Söz konusu fonksiyonlar *double* türünde argümanlar
+alır ve yine *double* türünde değerler return eder. *#include <math.h>*
+direktifiyle programa dahil edilebilirler. Sık kullanılan *math*
+fonksiyonları şöyle sıralanabilir:
+
+|------------+------------------------------------------------------------------------------------------|
+| Fonksiyon  | Açıklama                                                                                 |
+|------------+------------------------------------------------------------------------------------------|
+| sqrt(x)    | x'in karekökünü alır.                                                                    |
+| exp(x)     | Euler sabiti'nin (e) x dereceden kuvvetini return eder (e^x).                            |
+| log(x)     | x'in doğal (e tabanında) logaritmasını alır.                                             |
+| log10(x)   | 10 tabanında x'in logaritmasını return eder.                                             |
+| fabs(x)    | x'in mutlak değeri                                                                       |
+| ceil(x)    | x'i kendisinden büyük en küçük tam sayıya yuvarlar (ceil(-9.8) = -9.0; ceil(9.8) = 10.0) |
+| floor(x)   | x'i kendisinden küçük en büyük tam sayıya yuvarlar (ceil'in tersi bi manada)             |
+| pow(x, y)  | x'in y dereceden kuvveti yani x ^ y                                                      |
+| fmod(x, y) | x/y işleminin kalanını verir. Bi yerde x % ile aynıdır.                                  |
+| sin(x)*    | x'in sinüsü                                                                              |
+| cos(x)*    | x'in kosinüsü                                                                            |
+| tan(x)*    | x'in tanjantı                                                                            |
+|------------+------------------------------------------------------------------------------------------|
+
+: *: sin, cos ve tan fonksiyonları radyan cinsinden değer alır. Derece cinsinden bir değeri radyana çevirmek
+: için math kütüphanesinde bulunan bir sabit olan M_PI ile çarpmamız gerekir. Örneğin "alpha"yı radyana çevirmek
+: için (alpha * M_PI / 180) işlemini yapmamız gerekir (M_PI aslında pi sayısı.)
+
+*** 2- Standart kütüphane (/stdlib.h/):
+
+Bellek yerleştirmeleri, rastgelelik fonksiyonları, tür dönüşümleri
+fonksiyonlarının yanı sıra bunlara yardımcı fonksiyonları yani standart
+işlemleri içeren kütüphanedir. *stdlib.h* header dosyası ile çağrılır.
+
+**** /rand()/ fonksiyonu:
+
+0 ile *stdlib* içersinde tanımlı olan *RAND_MAX* sabiti (Windows ve DOS'ta
+32767, Unix ve Linux'ta 2147483647) arasında rastgele bir sayı üretir. Bu
+sayıyı belli bir başlangıç değeri üzerinde bir dizi aritmetik operasyon
+kullanarak üretmek de mümkündür:
+
+#+BEGIN_SRC c
+rastgele = rand(); /* 0 ile RAND_MAX arasinda rastgele bir sayi */
+zarDegeri = 1 + rand() % 6; /* 1 ile 6 arasında rastgele bir sayi */
+baskaSayi = rand()10 + 14; /* 14 ile 23 arasinda rastgele sayi */
+#+END_SRC
+
+**** /srand()/ fonksiyonu:
+
+*rand()* fonksiyonuna benzer şekilde ve benzer amaçla çalışır fakat farklı
+olarak *srand()* bir argüman alır ki bu da rastgele sayı serisinin başlangıç
+noktasını belirler. Burada amaç, her seferinde farklı bir seri sunmak ve
+rastgeleliğin düzeyini artırmaktır. Argüman olarak kullanıcı girdisi de
+verilebilir fakat pek iyi bir pratik değildir. Genellikle *time.h*
+kütüphanesinde bulunan *time()* fonksiyonundan faydalanılır ki bu fonksiyona
+argüman olarak /"NULL"/ verildiğinde 01-01-1970'ten bu yana geçen zamanın
+saniye cinsinden ifadesini çıktı olarak verir. Böylece *srand()* her
+çalıştığında farklı bir başlangıç noktası verilir. *srand()* kendisi bir
+rastgele değer üretmez, *rand()* fonksiyonu ile birlikte kullanılır.
+
+#+BEGIN_SRC c
+srand(time(NULL))
+rastgele = rand() % 49 + 1;
+#+END_SRC
+
+*** 3- Kullanıcı tanımlı fonksiyonlar:
+
+C kütüphaneleri her zaman ihtiyaç duyduğumuz fonksiyonlara sahip olmayabilir.
+Genellikle tüm programlama dillerinde kullanıcının yazdığı fonksiyonlar
+programın temelini oluşturur. Genel olarak bir fonksiyonun yapısı şu şekilde
+özetlenebilir:
+
+: |--------[Fonksiyon Başlığı]------------------|
+: [FonksiyonTürü] <FonksiyonAdı> ([Parametreler]){
+:     ..............;-|
+:     ..............; |----> Fonksiyon bloğu
+:     ..............;-|
+: }
+
+**** Parametre ve return değeri olmayan fonksiyonlar:
+
+Bu fonksiyonlar *ne bir parametre alır ne de bir return değeri verirler*.
+/Return değerleri olmadığı için/ fonksiyon türü olarak *void* ifadesi
+yazılır. /Fonksiyonun türü aynı zamanda return değerinin de türüdür/. Fakat
+fonksiyon türü verilmediğinde çoğunlukla tahmin edildiği gibi return değeri
+olmadığı varsayılmaz; return değerinin *int* türünde olduğu varsayılır.
+
+İlk örneğimiz klasik Merhaba Dünya:
+
+#+BEGIN_SRC c
+// iki türlü tanımlanabilir:
+void fonksiyon(void){
+    printf("Merhaba Dünya");
+}
+// ya da:
+void fonksiyon(){
+    printf("Merhaba Dünya");
+}
+#+END_SRC
+
+**** Parametre alıp return değeri olmayan fonksiyonlar:
+
 
