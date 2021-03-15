@@ -1275,7 +1275,7 @@ srand(time(NULL))
 rastgele = rand() % 49 + 1;
 #+END_SRC
 
-*** 3- Kullanıcı tanımlı fonksiyonlar:
+** Kullanıcı tanımlı fonksiyonlar:
 
 C kütüphaneleri her zaman ihtiyaç duyduğumuz fonksiyonlara sahip olmayabilir.
 Genellikle tüm programlama dillerinde kullanıcının yazdığı fonksiyonlar
@@ -1312,4 +1312,17 @@ void fonksiyon(){
 
 **** Parametre alıp return değeri olmayan fonksiyonlar:
 
+Bu tür fonksiyonlar, çağıran fonksiyondan en az bir /parametre/ (/argüman/)
+alırlar ve çoğunlukla bu parametreler üzerinde değişiklik yaparlar. Bu
+fonksiyonlara verilen parametrelere /girdi parametresi/ denir. Girdi kabul
+eden fonksiyonlarda fonksiyonun kabul ettiği değişkenler, veri türü ile
+birlikte fonksiyon parantezi içersinde virgüllerle ayrılarak tanımlanır.
+Bunları karşılayan değişkenler ise fonksiyon çağırılırken parantez içinde
+yazılır.
+#+BEGIN_SRC c
+void fonksiyon(veriTürü değişken, veriTürü değişken){
+    /* değişkenin kullanıldığı işlemler */
+}
+#+END_SRC
 
+#TODO: ORNEK YAZ BUNUNLA ILGILI SONRA s.164ten DEVAM
