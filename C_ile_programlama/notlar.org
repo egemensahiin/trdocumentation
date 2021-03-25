@@ -1325,4 +1325,260 @@ void fonksiyon(veriTürü değişken, veriTürü değişken){
 }
 #+END_SRC
 
-#TODO: ORNEK YAZ BUNUNLA ILGILI SONRA s.164ten DEVAM
+Ana fonksiyon içinde bu fonksiyonların çalıştırılması ise şu şekildedir:
+#+BEGIN_SRC c
+int main(){
+    fonksiyon(gonderilenDeger)
+}
+#+END_SRC
+Burada gönderilen değer, main içersinde tanımlanmış bir değişken olabileceği
+gibi sabit bir obje de olabilir.
+
+**** Parametre alıp return değeri olan fonksiyonlar:
+
+Bu fonksiyonlar, çağıran fonksiyondan bir ya da birden fazla parametre alır
+ve bunlar üzerinde çeşitli işlemler gerçekleştirerek geriye bir değer
+döndürürler. Geriye değer döndürmek için *return* komutu kullanılır. Syntaxı
+şu şekildedir:
+
+: return [geriDönüşDeğeri];
+
+*return* komutu çalıştığında fonksiyon sonlanır ve sonrasında yazılan kısım
+çalışmaz. Return değeri, komut için opsiyoneldir ve geri dönüş değeri
+vermeden mesela belli bir koşula bağlı olarak fonksiyonu sonlandırmak için de
+return komutu kullanılabilir.
+
+Değer geri veren bir fonksiyon örneği görelim:
+#+BEGIN_SRC c
+#include <stdio.h>
+int topla(int a, int b){
+    return a + b;
+}
+int main(){
+    int a, b;
+    printf("İki adet sayi giriniz: ");
+    scanf("%d%d",&a,&b);
+    printf("Girilen sayilarin toplami %d", topla(a, b));
+    return 0;
+}
+#+END_SRC
+
+**** Parametre akış türleri:
+Fonksiyonlara değerler gönderilirken iki yol kullanılabilir. Bunların
+detayları başka bir konu fakat genel olarak anlatalım:
+- *Değerlerle çağırım (call by value)*: Bu yöntemde fonksiyona gönderilen
+  değerler çağırılan fonksiyondaki parametrelerin içersine kopyalanır.
+  Kopyalanan değerlerin değişmesi orikinal değerleri etkilemez. Varsayılan
+  olarak (yani buraya kadar yazdıklarımız da bunlara dahil) fonksiyonlar bu
+  şekilde çalışır.
+- *Bağlantılı çağırım (call by referance)*: Bu yööntemde ise değerlerin
+  kopyalandığı değişkenlerin değişmesi, orijinal değişkenin değerini de
+  etkiler. Ayrıntılar daha sonra.
+
+**** Fonksiyon prototipleri:
+Derleyici programı yukarıdan aşağıya doğru okuduğu için kendi yazdığımız
+fonksiyonları her zaman kullanmadan önce yani main fonskiyonundan önce
+yazdık. Fakat main fonksiyonunda değişkenleri tanımladığımız gibi main
+fonksiyonundan önce programın kendisine fonksiyonlarımızı tanıtarak
+istediğimiz yerde kullanmamız da mümkün. Bunu yapmak için fonksiyonun return
+değerinin türünü ve ismini (opsiyonel olarak beklediği parametreleri de)
+*prototip* olarak /fonksiyonun örneklemlerinden (çağırımlarından)/ önce 
+yazmamız gerek. Yukarıdaki örneğin bu syntaxta yazımı şöyle olur:
+#+BEGIN_SRC c
+#include <stdio.h>
+int topla;
+// argümanlar verilebilir de ama verilse dahi derleyici bunları okumaz
+// kodun diğer programcılar tarafından okunabilirliği adına iyi bir pratiktir
+int main(){
+    int a, b;
+    printf("İki adet sayi giriniz: ");
+    scanf("%d%d",&a,&b);
+    printf("Girilen sayilarin toplami %d", topla(a, b));
+    return 0;
+}
+int topla(int a, int b){
+    return a + b;
+}
+#+END_SRC
+
+*** Depolama sınıfları:
+Şimdiye kadar değişkenlerin temel nitelikleri anlatılmıştı. Değişkenlerin
+temel nitelikleri /türü, ismi ve değeri/dir. Bu nitelikler bir değişken
+tanımlamak için yeterli olsa da bunlara ek olarak değişkenlerin *depolama sınıfı*
+(storage classes), *ömrü* (duration) ve *faaliyet alanı* (scope) nitelikleri
+de vardır.
+
+C dilinde değişkenlerin depolama sınıfı belileyicilerle tanımlanır ve 4
+farklı tür depolama sınıfı vardır: *auto*, *register*, *static* ve *extern*.
+Bu belirleyicilerle tanımlanan değişkenler, /ömür/lerine göre ikiye
+ayrılırlar: *otomatik depolama sınıfları* (automatic storage classes) ve
+*durağan depolama sınıfları* (static storage classes).
+
+**** Otomatik depolama sınıfları (automatic storage classes):
+Bu tür değişkenler *auto* veya *register* belirleyicileri ile tanımlanırlar.
+Belirleyiciler, değişkenin değişken türü önüne yazılarak kullanılırlar. Bir
+değişkenin /otomatik depolama ömrüne sahip olması/, tanımlandığı bloğun
+çalışması durumunda belleğe yerleştirilip bloğun çalışması sonlandığında da
+bellekten silinmesi silinmesi anlamına gelir. C dilinde yalnızca değişkenler
+otomatik depolama ömürlüdürler, fonksiyonlar değil (?).
+
+Bir fonksiyonun lokal değişkenleri, bir belirleyici yazılmadığında varsayılan
+olarak otomatik depolama ömürlüdür. Otomatik depolama ömrü belirleyicisi
+olarak çoğunlukla *auto* kullanılmaktadır. *auto*, değişkenleri ihtiyaç
+olduğunda kullanıp değişkenin işi bittiğinde /tamamen/ ortadan kaldırarak
+hafızayı verimli kullanmamızı sağlar. Syntax şu şekildedir:
+
+#+BEGIN_SRC c
+auto double a,b;
+#+END_SRC
+
+Öte yandan *register* da benzer şekilde çalışsa da veriyi tamamen yok etmez.
+*register* ismi, CPU'lar üzerindeki register yani kaydedicilerden gelir.
+Bunlar CPU içindeki bilgileri (çoğunlukla geçici olarak) depolayan çok düşük
+kapasiteli belleklerdir. Çalıştırılmak üzere makine koduna çevrilen
+programlar çalışırken, üzerinde hesaplama yapılacak veya basit işlemler
+gerçeleştirilecek olan veriler bu kaydedicilere çağırılarak üzerlerinde işlem
+yapılır. Kullandığımız değişkenlerin hafızadan silinse dahi kaydediciler
+içersinde saklanmay devam etmesini istiyorsak *register* belirleyicisini
+kullanırız. Fakat *register* her zaman bu amacı yerine getiremez; söz konusu
+kaydediciler çok düşük kapasiteli olduğundan görece büyük programlardaki veri
+akışı dolayısıyla "register" edilen yani kaydedilen veriler, yenilerini
+depolamak üzere atılır. Fakat eğer veriler saklanabilirse programın devam
+eden aşamalarında bu veriye tekrar erişmek daha hızlı olacaktır. Syntax şu
+şekildedir:
+
+#+BEGIN_SRC c
+register int a,b;
+#+END_SRC
+
+Hem kullanım amacını etkin bir şekilde yerine getirememesi hem de modern
+derleyicilerin verilerin nasıl depolanacağına etkin bir şekilde karar
+verebilmesi sebebiyle *register* günümüz programlarında sık kullanılan bir
+belirleyici değildir.
+
+**** Durağan depolama sınıfları (static storage classes):
+Bu tür /değişken/ ya da /fonksiyonlar/, *extern* veya *static*
+belirleyicileri kullanılarak tanımlanırlar. Bir "tanımın" durağan depolama
+ömrü olması denek, programın çalışmaya başlamayısyla birlikte hafızaya
+alınması ve program bitinceye kadar hafızada kalması anlamına gelir. Global
+değişken ve fonksiyonlar ile *static* belirleyicisi ile tanımlanmış olan
+lokal değişkenler, durağan depolama sınıfındadır. Lokal değişkenlerden farklı
+olarak global değişken ve fonksiyonlar varsayılan olarak *extern*
+belirleyicisi ile tanımlıdırlar.
+
+Tanımlamak gerekirse /global değişkenler/, fonksiyonların dışında tanımlanan
+değişkenlerdir. Bir değişkenin global olması, program çalıştığı andan
+itibaren bellekte tutulması anlamına gelir. Bu tür değişkenler ve
+fonksiyonlar, programın her yerinde kullanılabilmektedir.
+
+*static* belirleyicisi ile tanımlanmış olan lokal değişkenler, global
+değişkenlerden farklı olarak yalnızca tanımlandıkları fonksiyon içersinde
+kukllanılabilirler fakat otomatik değişkenler gibi fonksiyon sonlandığında
+hafızadan silinmezler; fonksiyonun çalışmasıyla hafızaya alınır ve program
+sonlanana kadar, sahip oldukları değerle birlikte hafızada tutulurlar.
+Avantajları ise aynı fonksiyonun tekrar çalıştırılması durumunda ortaya
+çıkar. *static* bir değişken tanımlanmış bir fonksiyon, program içersinde
+tekrar çalıştırıldığındasöz konusu değişken en son sahip olduğu değerle
+birlikte halen hafızadadır. Bu sayede fonksiyonun iki farklı çağırımı
+arasında bir değeri taşıyabilmenin yanı sıra, *static* bir değişkenin tekrar
+çağırımı da hali hazırda hafızada olduğu için daha hızlıdır. Tanımlama anında
+değer ataması, yalnızca fonksiyon ilk çalıştığında okunur. Fonksiyon tekrar
+çalıştığında, değişken tekrar tanımlanmaz bunun yerine en son sahip olduğu
+değere sahiptir ve bu değerle çağırılır. Syntax şu şekildedir:
+#+BEGIN_SRC c
+static int a = 1;
+#+END_SRC
+*static* olarak tanımlanmış sayısal nitelikli değişkenlerin ilk değeri, eğer
+tanımlanmamışsa her zaman sıfırfır.
+
+*** Faaliyet alanı kuralları (scope rules):
+Değişkenin geçerli olduğu (diğer bir deyişle kullanılabileceği) program
+parçasına, o değişkenin /faaliyet alanı/ (/scope/) denir. Örnek vermek
+gerekirse bir blok yani, {} arasında kalan program parçası, içersinde
+tanımlanan yerel değişkenler yalnızca o blok ve o bloğun içersindeki /nested/
+bloklarda geçerlidir. C programlarında üç farklı scope vardır; *Dosya*
+*faaliyet alanı* (file scope), *blok faaliyet alanı* (block scope) ve
+*fonskiyon faaliyet alanı* (function scope).
+
+**** Dosya faaliyet alanı (file scope):
+Bir tanımlama fonksiyonların dışında yapıldığında (bu fonksiyonlara *main*
+fonksiyonu da dahil) dosya faaliyet alanına sahiptir. Bu scope'taki
+tanımlamalar, tanımlandıkları noktadan itibaren dosyanın sonuna kadar tüm
+fonksiyonlarda tanınır ve kullanılabilirler. Global değişkenler, fonksiyon
+tanımlamaları ve fonksiyon prototipleri dosya faaliyet alanına sahip
+tanımlamalardır.
+
+**** Blok faaliyet alanı (block scope):
+Herhangi bir blok içersindeki bütün bildiriler blok faaliyet alanına
+sahiptir. Bunların faaliyet alanları, blok içersinde tanımlandıkları yerde
+başlar ve blok sonunda "}" işaretinde sonlanır. İç içe (nested) bloklar
+arasında bir faaliyet alanı hiyerarşisi söz konusudur. Dış blok içersindeki
+değişkenler içteki bloklarda da tanımlıdır fakat iç blokta tanımlanmış
+değişkenler dış bloklarda tanımlı değildir. Dış ve iç bloklardaki değişkenler
+aynı isimlere sahip olabilir. Bu durumda iç bloktaki değişken dış bloktakini
+maskeler ve yalnızca kendisinin kullanılmasına izin verir. 
+
+**** Fonksiyon faaliyet alanı (function scope):
+Fonksiyon faaliyet alanı, blok faailet alanına benzer. Fonksiyon parametresi
+olarak ve fonksiyon gövdesi içersinde tanımlanan değişkenler yalnızca o
+fonksiyon içersinde geçerlidir. *static* keywordü ile tanımlanan yerel
+değişkenler her ne kadar programın sonuna kadar bellekte tutulsa da /blok/
+faaliyet alanına sahiptirler. Faaliyet alanları ömürlerini, ömürleri de
+faaliyet alanlarını değiştirmez.
+
+Tüm faaliyet alanlarının örneklerini aşağıda görebiliriz:
+#+BEGIN_SRC c
+#include <stdio.h>
+int x = 10; /* x değişkeni globaldir ve dosya faaliyet alanına sahiptir. */
+void a(void);
+void b(void);
+void c(void);
+int main(){
+    int x = 20; /* bu x değişkeni ise lokal bir değişkendir. */
+    printf("main blogundaki x = %d\n", x); /* buradan çıktı olarak 20 alınır.
+    lokal bir değişken ile global bir değişken aynı isme sahipse, lokal 
+    değişken global değişkeni maskeler. */
+    { /* yeni bir blok başlattık. bu blok içersindeki her şey, blok faaliyet
+         alanına sahiptir. */
+        int x = 30;
+        printf("main içersindeki blokta x = %d\n", x); /* burdan da yine iç
+        bloktaki çıktı alınır. yani x = 30 çıkar. */
+    } /* burada blok sonlanır. bundan sonraki faaliyet alanı, main
+         fonksiyonuna aittir. */
+    printf("bloktan sonra main fonksiyonundaki x = %d\n", x); /* artık blok
+    alanından çıktık ve main fonksiyonunun alanına geri döndük. burada
+    göreceğimiz x değeri 20 olur çünkü blok içersineki x değeri lokal olduğu
+    ve blok faaliyet alanı ile sınırlı olduğu için main fonksiyonu içersinden
+    bu değere ulaşılamaz. */
+    printf("------Fonksiyonlar ilk defa çağırılıyor.------\n");
+    a(); /* otomatik ömürlü, yerel bir x değişkeni var. */
+    b(); /* durağan ömürlü, yerel bir x değişkeni var.  */
+    c(); /* içersinde tanımlanmış bir x değişkeni yok, globaldeki x
+    değişkenini kullanıyor. */
+    printf("----Fonksiyonlar ikinci defa çağırılıyor.----\n");
+    a(); /* yerel x'i yeniden oluşturuyor. (otomatik) */ 
+    b(); /* yerel x'in son halini kullanıyor. (statik) */
+    c(); /* global x'in eski değerini kullanıyor. */
+    printf("main içersinde x'in son değeri = %d\n", x);
+    return 0;
+}
+void a(void){
+    auto int x = 40; /* fonksiyon her çağırıldığında bu değer atanır. */
+    printf("\na fonksiyonunun kapsamındayız. x = %d\n", x);
+    ++x;
+    printf("hala a'dayız ve x'i 1 arttırdık (++x). şu anda x = %d\n", x);
+}
+void b(void){
+    static int x = 50; /* bu x değişkeni durağan tanımlı, yerel bir değişken.
+    ilk çapırıldığında belleğe yerleşir ve bu satırdaki ilk değer atama
+    işlemi yalnızca fonksiyon ilk çalıştığında geçerlidir. */
+    printf("\nb fonksiyonunun kapsamındayız. x = %d\n", x);
+    x = x + 2;
+    printf("hala b'deyiz ve x'i 2 arttırdık. şu anda x = %d\n", x);
+}
+void c(void){
+    printf("\nb fonksiyonunun kapsamındayız. x = %d\n", x);
+    x = x * 2;
+    printf("hala b'deyiz ve x'i 2 ile çarptık. şu anda x = %d\n", x);
+}
+#+END_SRC
