@@ -1582,3 +1582,246 @@ void c(void){
     printf("hala b'deyiz ve x'i 2 ile çarptık. şu anda x = %d\n", x);
 }
 #+END_SRC
+
+* Özyineleme (Recursion):
+
+bir fonksiyonun kendi kendini çağırarak çalışmasına /özyineleme/, bu şekilde
+çalışan fonksiyonlara ise /özyinelemeli/ (/recursive/) fonksiyonlar denir.
+Özyineleme, döngüler gibi tekrarlı yapıların yerine kullanılabilecek oldukça
+güçlü bir programlama tekniğidir. Özyinelemeli bir algoritmada tekrarlar
+fonksiyonun kendisini kopyalayarak çağırması ile elde edilir ve bu kopyalar
+bittiğinde (normal fonksiyon çağırımlarında olduğu gibi esasında) bellekten
+silinirler.
+
+Bir problemi özyineleme ile çözebilmemiz için problemi iki ana parçaya
+ayırmamız gerekir:
+1) Cevabı kesin olarak bilinen bir *temel durum* (base case)
+2) Cevabı bilinmeyen fakat cevabı *problemin kendisi kullanılarak*
+bulunabilecek durum.
+
+Faktöriyel alma işlemini, özyineleme bakış açısıyla ele alabiliriz.
+Faktöriyeli tanımlamamız gerekirse; herhangi bir doğal sayının (0 hariç)
+faktöriyeli, birden başlayarak o sayıya kadarki tüm doğal sayıların
+çarpımıdır.
+
+: N! = 1 * 2 * ... * (N - 1) * N
+
+Sıfırın faktöriyeli, 1'dir.
+
+: 0! = 1
+
+Eğer bu işlemdeki son sayıyı yani N'i ayırırsak işlemi şu şekilde de
+yapabiliriz:
+
+: N! = N * (N - 1)!
+
+Bu mantığı programlama çerçevesinde düşündüğümüzde, N!'in ilk ve ikinci
+gösterimleri bize özyineleme için ihtiyaç duyduğumuz 2. durumu sağlar: cevabı
+bilinmeyen ama cevabı problemin kendisi kullanılarak bulunabilen durum yani
+N! yerine (N - 1)! * N kullanmamız bizi cevaba götürmez, cevabı yine
+problemin kendisi ile çözülebilen yeni bir durum yaratır. Burada temel
+durumumuz ise cevabu kesin olarak bilinen durum yani 0! durumudur.
+
+Döngüler kullanılarak bir faktöriyel hesaplama fonksiyonu şu şekilde
+yazılabilir:
+
+#+BEGIN_SRC c
+long faktoriyelHesabi(int n){
+    long faktoriyel = 1, i;
+    for (i = 1; i <= n; i++)
+        faktoriyel = faktoriyel * i;
+    return faktoriyel;
+}
+#+END_SRC
+
+Özyinelemeli bir fonksiyonun akış şemasını incelediğimizde mantığını daha iyi
+kavrayabiliriz. Mesela 5 faktöriyeli hesaplamak için özyinelemeli bir
+fonksiyon şu şekilde bir akış izler:
+
+: 5 faktoriyeli bul
+: (5! = 5 * 4!) ==> 4 faktoriyeli bul
+: (4! = 4 * 3!) ==> 3 faktoriyeli bul
+: (3! = 3 * 2!) ==> 2 faktoriyeli bul
+: (2! = 2 * 1!) ==> 1 faktoriyeli bul
+: (1! = 1 * 0!) ==> 0 faktoriyeli bul
+: (0! = 1) ==> Temel duruma kadar indik
+
+Aranan ve bulunan her bir değer bir üstteki yerine yazılırsa sonuçta 5
+faktöriyele ulaşılacaktır. Yani n == 0 ise 1 return edip değilse n'i aynı
+fonksiyona n-1 vererek alınan değerle çarptığımızda, en sonunda 5 faktöriyeli
+elde ederiz. Programa döktüğümüzde ise şöyle olur:
+
+#+BEGIN_SRC c
+long faktoriyelHesabi(int n){
+    if (n == 0)
+        return 1;
+    else
+        return n * faktoriyelHesabi(n - 1);
+}
+#+END_SRC
+
+Fonksiyonlar özyineli olarak her çalıştığında yerel değişkenler ve
+parametreler bellekten ayrılır. Her fonksiyondan çıkışta söz konusu
+fonksiyonun değişkenleri için bellekte ayrılan yerler serbest kalır ve bir
+önceki kopya yeniden etkinleştirilir. C dili bu işlemi "/yığın/" (stack)
+olarak gerçekleştirir. Her fonksiyon çağırımında fonksiyonun değişkenleri
+yığının en üstüne konur ve fonksiyondan çıkıldığında enson eklenen eleman
+çıkarılır. En son işlem görecek olan fonksiyon, ilk giren fonksiyondur.
+
+Özyinelemeye başka bir örnek de fibonacci sayılarıdır. Fibonacci dizisinde 0
+ve 1. elemanlar hariç tüm elemanlar, kendisinden önceki iki elemanın toplamı
+şeklinde yazılabilmektedir. Bu durumda f(0) ve f(1) durumları temel durum
+olacaktır. Her elemandan bir önceki sayı da kendinden önceki son iki sayının
+toplamı şeklinde yazılabilir. Bu da bizim cevabı olmayan ama problemin
+kendisi ile cevabı bulabilen durumumuz. yani f(a) = f(a-1) + f(a-2) olur.
+
+Aşağıdaki fonksiyon, istenen sıradaki bir fibonacci sayısını verir:
+#+BEGIN_SRC c
+long fib(int a){
+    if (a == 0 || a == 1)
+        return a;
+    else
+        return fib(a - 1) + fib(a - 2);
+}
+#+END_SRC
+
+Fonkyionun çalışma şemasını, a = 4 için inceleyelim:
+
+:             |main()|
+:                |
+:                ▼
+:             |fib(4)|
+:             /     \
+:            /       \
+:           ▼        ▼
+:       |fib(3)| + |fib(2)|
+:        /     \       |   |
+:       /       \      |   ------|
+:      ▼        ▼      ▼         ▼
+: |fib(2)| + |fib(1)| |fib(1)| + |fib(0)|
+:  |    |
+:  |    ------|
+:  ▼          ▼ 
+: |fib(1)| + |fib(0)|
+
+* Diziler (Arrays)
+
+Tek bir isim (değişken) altında *aynı türde* birden fazla değer tutmak için
+kullanılan veri yapılarıdır. Diziler esasında bir kümedir. Dizi içersindeki
+her bir veriye de /eleman/ adı verilir. Bir dizinin tüm elemanları, bellekte
+ardışık olarak saklanır. Çok boyutlu veya tek boyutlu dizilerden bahsetmek
+mümkündür.
+
+** Tek boyutlu diziler:
+
+C99 öncesi C standartlarına göre dizinin eleman sayısı ya belli bir sayı ya
+da önceden *#define* önişlemci direktifi ile tanımlanmış sembolik bir sabit
+olmalıdır, bir değişken olamaz. C99 standardı ile birlikte artık dizilerin
+eleman sayıları değişken olabilmektedir. Tek boyutlu bir dizi oluşturmak için
+syntax şu şekildedir:
+
+: dizinTürü dizinAdı [elemanSayısı];
+
+Bir kaç örnekle gösterelim:
+#+BEGIN_SRC c
+int sayiDizisi[6] /* 6 elemanlı, int'lerden oluşan dizi */
+char karakterDizisi[10] /* 10 elemanlı, char'lardan oluşan bir dizi */
+#+END_SRC
+
+Dizi içersindeki her bir elemana dizi isminden sonra yazılan pozisyon
+numarası yani indis değeri ile ulaşılır. İndis değerleri her zaman tamsayıdır
+ve tüm dizilerde indis numarası *sıfırdan başlar*.
+
+| indis         | eleman    |
+| sayiDizisi[0] | 1. Eleman |
+| sayiDizisi[1] | 2. Eleman |
+| sayiDizisi[2] | 3. Eleman |
+| sayiDizisi[3] | 4. Eleman |
+| sayiDizisi[4] | 5. Eleman |
+| sayiDizisi[5] | 6. Eleman |
+
+*** Tek boyutlu dizilere eleman atanması:
+
+Dizinin elemanlarına ulaşmak için dizinin ismi ve köşeli parantez içersinde
+indis numarasının yazılması yeterli olmaktadır. *sayiDizisi* dizisine
+aşağıdaki gibi değerler atanabilir:
+
+#+BEGIN_SRC c
+sayiDizisi[0] = 10; /* 0 numaralı indise 10 değerini atadık */
+#+END_SRC
+
+*** Tek boyutlu dizilere ilk değer atanması:
+
+Dizilere yukarıdaki gibi tek tek değer ataması yapmak yerine diziyi
+tnaımlarken {} kullanarak ilk değer ataması da yapılabilir. Örnek vermek
+gerekirse:
+
+#+BEGIN_SRC c
+int sayilar[5] = {2, 4, 3, 5, 8};
+#+END_SRC
+
+Bu tanımladığımız dizi şöyle olacaktır:
+
+| indis      | eleman |
+| sayilar[0] | 2      |
+| sayilar[1] | 4      |
+| sayilar[2] | 3      |
+| sayilar[3] | 5      |
+| sayilar[4] | 8      |
+
+Belirtilen eleman sayısından daha fazla eleman verildiğinde hata alınır. Daha
+az eleman verildiğinde ise (int dizileri için) atanmayan elemanlara 0 atanır.
+İlk değer ataması yapılmayan dizilerin elemanları, bellekteki rastgele
+değerlerden oluşur. Eğer dizi *static* ya da global olarak tanımlanmış ise
+ilk değer ataması yapılmadığında elemanların değerleri sıfır olarak veya boş
+olarak atanır.
+
+İlk değer ataması yapılırken *eleman sayısının verilmesi zorunlu değildir*.
+Bu durumda, kaç değer eleman olarak atanmışsa dizinin uzunluğu o kadar olur.
+
+: int a[5] = {4,5}; | int a[5] = {0}; | int a[5];    | int a[] = {5, 4, 3};
+: a[0]     4        | a[0]     0      | a[0]    rand | a[0]    5
+: a[1]     5        | a[1]     0      | a[1]    rand | a[1]    4
+: a[2]     0        | a[2]     0      | a[2]    rand | a[2]    3
+: a[3]     0        | a[3]     0      | a[3]    rand |
+: a[4]     0        | a[4]     0      | a[4]    rand |
+
+Dizilerin kullanımına bir örnek olması açısından, yazılan 5 adet sayıyı,
+sondan başa sıralayan bir program yazalım:
+
+#+BEGIN_SRC c
+#include <stdio.h>
+int main(){
+    int sayilar[5]; /* 5 elemanlı bir tamsayı dizisi */
+    int i;
+    printf("5 adet sayı giriniz: \n");
+    for (i = 0; i < 5; i++)
+        scanf("%d", &sayilar[i]);
+    printf("Girilen sayilarin sondan basa siralamasi: \n");
+    for (i = 4; i >= 0; i--)
+        printf("%d\n", sayilar[i]);
+    return 0;
+}
+#+END_SRC
+
+** Tek boyutlu dizilerin sıralanması:
+
+Söz konusu dizi elemanlarının sıralanması olduğunda pek çok farklı algoritma
+kullanılmaktadır. Bunlar arasında kabarcık sıralama (bubble sort), seçme
+sıralama (selection sort), kabuk sıralama (shell sort), çabuk sıralama (quick
+sort) sayılabilir. Bunlar arasında en sık kullanılan ve en pratik
+algoritmalardan biri *kabarcık sıralama* algoritmasıdır.
+
+Kabarcık sıralamada her bir eleman kendisinden bir sonraki eleman ile
+karşılaştırılır. Karşılaştırma büyüklük sorgulaması şeklinde yapıldığında
+dizi küçükten büyüğe; küçüklük sorgulaması yapıldığında ise büyükten küçüğe
+sıralanır. Eğer karşılaştırma koşuluna uyuyorsa iki elmanın yerleri
+değiştirilir. Değiştirme işlemi için bir yedek değişken kullanılmalıdır. Bu
+işlem, dizinin eleman sayısının 1 eksiği defa tekrarlanır. Elemanlar son
+tekrardan önce sıralanmış olsa da eleman sayısının 1 eksiği kadar
+tekrarlandığında dizinin sıralandığı garanti altına alınır.
+
+Aşağıda 5 elemanlı bir dizinin sıralanması ile algoritmayı inceleyebiliriz:
+
+#+NAME Şekil: Kabarcık sıralama algoritması
+[[./resimler/bubble_sort.jpg]]
