@@ -1823,5 +1823,4 @@ tekrarlandığında dizinin sıralandığı garanti altına alınır.
 
 Aşağıda 5 elemanlı bir dizinin sıralanması ile algoritmayı inceleyebiliriz:
 
-#+NAME Şekil: Kabarcık sıralama algoritması
 [[./resimler/bubble_sort.jpg]]
