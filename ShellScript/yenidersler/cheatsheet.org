@@ -15,7 +15,9 @@
 |--------------------------------------------------------------------|
 
 * Koşullu ifadeler
+
 ** Dosya Operatörleri (Testleri)
+
 |---------+----------------------------------------------------------|
 | -d FILE | FILE klasör olduğunda doğrudur.                          |
 |---------+----------------------------------------------------------|
@@ -31,7 +33,9 @@
 |---------+----------------------------------------------------------|
 | -x FILE | FILE kullanıcı tarafından çalıştırılabilir ise doğrudur. |
 |---------+----------------------------------------------------------|
+
 ** String Operatörleri (Testler)
+
 |--------------------+----------------------------------|
 | -z STRING          | STRING boş ise doğrudur.         |
 |--------------------+----------------------------------|
@@ -41,7 +45,9 @@
 |--------------------+----------------------------------|
 | STRING1 != STRING2 | Stringler eşit değilse doğrudur. |
 |--------------------+----------------------------------|
+
 ** Aritmetik Operatörler (Testler)
+
 |---------------+--------------------------------------------|
 | arg1 -eq arg2 | arg1 ve arg2 eşit olduğunda doğrudur.      |
 |---------------+--------------------------------------------|
@@ -56,19 +62,22 @@
 | arg1 -ge arg2 | arg1, arg2'den büyük veya eşitse doğrudur. |
 |---------------+--------------------------------------------|
 
-* Pozisyonel parametreler
+* Pozisyonel parametreler (Ş = dolar isareti)
+
 |--------------+---------------------------------------------------------|
-| $0, $1 .. $N | N. pozisyonel parametredir. ($0, fonksiyonlar içersinde |
+| Ş0, Ş1 .. ŞN | N. pozisyonel parametredir. (Ş0, fonksiyonlar içersinde |
 |              | kullanıldığında fonksiyonun adı, normalde ise scriptin  |
 |              | adıdır)                                                 |
 |--------------+---------------------------------------------------------|
-| $@           | $1'den sonuncuya kadar tüm pozisyonel parametrelerdir.  |
+| Ş@           | Ş1'den sonuncuya kadar tüm pozisyonel parametrelerdir.  |
 |--------------+---------------------------------------------------------|
-| $?           | Son çalışan komutun, fonksiyonun, programın exit kodu   |
+| Ş?           | Son çalışan komutun, fonksiyonun, programın exit kodu   |
 |--------------+---------------------------------------------------------|
-| $$           | Çalışan scriptin işlem numarası (Process ID/PID)        |
+| ŞŞ           | Çalışan scriptin işlem numarası (Process ID/PID)        |
 |--------------+---------------------------------------------------------|
+
 * Çıkış durumları (exit status)
+
 |-----------------------------------------------------------------------------|
 | Çıkış kodları başarılı durumlarda 0 diğer durumlarda ise 1-255 arasında bir |
 | sayıdır. Scriptlerimizin exit kodunu "exit" komutuyla belirleyebiliriz.     |
@@ -80,6 +89,7 @@
 |-----------------------------------------------------------------------------|
 
 * Shell Scriptlerin genel düzeni
+
 |---+---------------------------------------------|
 | 1 | Shebang                                     |
 |---+---------------------------------------------|
@@ -98,6 +108,7 @@
 |---+---------------------------------------------|
 
 * Wildcards
+
 |---------------+-------------------------------------------------|
 | Tanım         | Tanım olarak Wildcardlar, dosya veya dizinlerle |
 |               | eşleşen karakterler olarak özetlenebilirler.    |
