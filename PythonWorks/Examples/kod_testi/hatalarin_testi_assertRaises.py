@@ -15,7 +15,7 @@ class HatayiTestEt(unittest.TestCase):
         # ve bunları, 2. argüman olarak verilen fonksiyondan geçirerek bu durumda ilk argümandaki hatanın verilip verilmediğini test
         # eder.
         self.assertRaises(ZeroDivisionError, sayilari_bol, 10, 0)
-    
+
     def test_alternatif(self):
         # assertRaises fonksiyonun alternatif bir syntaxı da with keywordü ile birlikte kullanımıdır. yalnızca beklenen hata verilerek
         # assertRaises fonksiyonu with ile açılır ve with bloğunda test edilecek örneklem yazılır.

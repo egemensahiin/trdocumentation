@@ -3,18 +3,18 @@ from unittest.mock import MagicMock
 
 # şimdi bir örnekle mocking ve testing konseptlerini birleştirelim:
 class Aktor():
-    
+
     def helikopterden_atla(self):
         return "Hayatta olmaz kafayi mi yediniz aga."
-    
+
     def atese_atla(self):
         return "Ne diyosun abi? Menajerimi bi çağırsana."
-    
+
 class Film():
 
     def __init__(self, aktor):
         self.aktor = aktor
-    
+
     def cekimlere_basla(self):
         self.aktor.helikopterden_atla()
         self.aktor.atese_atla()

@@ -11,7 +11,7 @@ class DogrulukTesti(unittest.TestCase):
         self.assertTrue(["a"])
         self.assertTrue({1, 2})
         self.assertTrue({ "b": 5 })
-    
+
     def test_yanlislik(self):
         self.assertFalse(3 > 5)
         self.assertFalse(0)

@@ -21,11 +21,11 @@ class Restoran():
     def __init__(self, adres, isletmeci):
         self.adres = adres
         self.isletmeci = isletmeci
-    
+
     @property
     def isletmeciYasi(self):
         return self.isletmeci.yas
-    
+
     def ozetle(self):
         return f"Bu restoran {self.isletmeci.isim} tarafindan isletilmektedir ve {self.adres.ilce} ilcesinde bulunur."
 
@@ -55,18 +55,18 @@ class RestoranTesti(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         print("Burasi tum test suitinden once, bir kere yazilacak.")
-    
+
     @classmethod
     def tearDownClass(cls):
         print("Burasi tum test suitinden sonra, bir kere yazilacak.")
-    
+
     def testIsletmeciYasi(self):
         # artık tek yapmamız gereken, sınıf uzayında tanımlı niyaziKesim değişkenini test objesi olarak kullanmak.
         self.assertEqual(self.niyaziKesim.isletmeciYasi, 45)
-    
+
     def testOzet(self):
         self.assertEqual(self.niyaziKesim.ozetle(), "Bu restoran Caner tarafindan isletilmektedir ve Balgat ilcesinde bulunur.")
-    
+
     def testIsletmeciIsmi(self):
         self.assertEqual(self.niyaziKesim.isletmeci.isim, "Caner")
 

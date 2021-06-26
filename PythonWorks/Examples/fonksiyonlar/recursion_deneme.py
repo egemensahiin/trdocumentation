@@ -48,10 +48,10 @@ def binary_search(l, target, low=None, high=None):
         low = 0
     if high is None:
         high = len(l) - 1
-    
+
     if high < low:
         return -1
-    
+
     mid = (low + high) // 2
 
     if l[mid] == target:
